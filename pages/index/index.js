@@ -45,7 +45,7 @@ Page({
       { id:7,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
       { id:8,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
       { id:9,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:10,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
+      { id:10,name:"抑郁无法绑架我1",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
     ]
     dd.showLoading({
       content: '加载中...',
