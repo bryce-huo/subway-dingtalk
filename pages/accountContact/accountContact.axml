@@ -1,0 +1,24 @@
+<view class="main">
+  <view class="gui-padding">
+    <form onSubmit="formSubmit">
+      <view class="gui-form-item-textarea gui-border-b">
+        <view class="page-section-title">问题描述</view>
+        <view class="page-section-demo">
+          <textarea name="contact-content" onBlur="bindTextAreaBlur" auto-height placeholder="请输入内容" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">联系方式</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="name" placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view style="height:80rpx;"></view>
+      <view class="order-btns">
+				<button form-type="submit" hover-class="btn-hover" type="primary">确认提交</button>
+			</view>
+			<view style="height:80rpx;"></view>
+    </form>
+  </view>
+</view>

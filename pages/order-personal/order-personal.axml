@@ -1,0 +1,58 @@
+<view class="main">
+  <view class="gui-padding">
+    <form onSubmit="formSubmit">
+      <view>
+        <image mode="widthFix" class="yuyue-banner" mode="" src="/static/yuyue_banner.jpg"></image>
+				<!-- <text class="gui-h6 gui-color-gray gui-bold">个人信息</text> -->
+			</view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">姓名</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="name" placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">电话</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="tel" placeholder="请输入电话" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">工号</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="number" placeholder="请输入工号" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+				<text class="gui-form-label">困扰类型</text>
+				<view class="gui-form-body">
+					<picker onChange="bindTypeChange" range="{{typeArray}}" value="{{typeIndex}}">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{typeArray[typeIndex]}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view class="gui-form-item gui-border-b">
+				<text class="gui-form-label">咨询师</text>
+				<view class="gui-form-body">
+					<picker onChange="bindTeacherChange" range="{{teacherArray}}" value="{{teacherIndex}}">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{teacherArray[teacherIndex]}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view style="height:80rpx;"></view>
+      <view class="order-btns">
+				<button form-type="submit" hover-class="btn-hover" type="primary">确认预约</button>
+			</view>
+			<view style="height:80rpx;"></view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="main">
+  <view class="result-title">
+    你是个易冲动的人吗
+  </view>
+  <view class="result-content">
+    <text class="result-content-main">
+       你是个很小心的人。 事事谨慎的你在做决定的时候会细细考虑，结果就是因为想太多了，连该做的事都没去做。这样的你冲动指数不高，受人影响的指数却不低，所以极有可能会在旁人怂恿下做出意想不到的事。
+    </text>
+    <text class="result-content-tips">本测评结果仅供参考，具体问题请咨询心理老师</text>
+  </view>
+  <view class="wirte-review">
+    <view class="page-section">
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">评论</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="review" placeholder="点击添加评论" />
+        </view>
+      </view>
+      <view style="margin-top:0.3rem;">
+        <button type="primary" hover-class="btn-hover" onTap="">发送</button>
+      </view>
+    </view>
+  </view>
+</view>

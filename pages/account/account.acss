@@ -1,0 +1,62 @@
+.a-page {
+  background: #f2f2f2;
+}
+.account-top {
+  padding: 0.5rem 0.3rem;
+  background: url(/static/account_bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0;
+}
+.account-top image {
+  width: 1.2rem;
+  height: 1.2rem;
+  box-shadow: 1px 5px 17px rgb(0 0 0 / 15%);
+}
+.account-top__info {
+  flex: 1;
+  background: #fff;
+  margin-left: 0.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 5px;
+  box-shadow: 1px 5px 17px rgb(0 0 0 / 15%);
+}
+
+.account-top__body {
+  padding: 0 0.3rem;
+}
+.account-top__body-list {
+  background: #fff;
+  padding: 0.15rem 0.25rem;
+  border-radius: 5px;
+}
+.account-top__list-item {
+  position: relative;
+
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 0.3rem;
+  line-height: 0.7rem;  
+}
+.account-top__list-item navigator {
+  display: flex;
+  align-items: center;
+}
+.account-top__list-item .iconfont {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.4rem;  
+  color: #cecdcd;
+}
+.account-top__list-item:last-child {
+  border: 0;
+}
+.colorfont {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.2rem;
+}
+
+

@@ -1,0 +1,41 @@
+<view>
+  <view class="gui-flex gui-rows gui-nowrap account-top">
+    <image src="/static/user.jpg"></image>
+    <view class="account-top__info">
+      <text class="gui-block-text">小丽</text>
+      <text class="gui-block-text gui-color-gray">欢迎您，亲爱的客户</text>
+    </view>
+  </view>
+  <view class="account-top__body">
+    <view class="account-top__body-list">
+      <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/accountYuyue/accountYuyue">
+          <image class="colorfont" src="/static/color_fonts/yuyue.png"></image>
+          <text class="gui-block-text">我的预约</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
+      <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/accountWishlist/accountWishlist">
+          <image class="colorfont" src="/static/color_fonts/weike.png"></image>
+          <text class="gui-block-text">我的收藏</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
+      <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/accountResult/accountResult">
+          <image class="colorfont" src="/static/color_fonts/jieguo.png"></image>
+          <text class="gui-block-text">我的测试结果</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
+      <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/accountContact/accountContact">
+          <image class="colorfont" src="/static/color_fonts/fankui.png"></image>
+          <text class="gui-block-text">建议反馈</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

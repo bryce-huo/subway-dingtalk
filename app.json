@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/account/account",
+    "pages/microLesson/microLesson",
+    "pages/reservation/reservation",
+    "pages/psychologicalTest/psychologicalTest",
+    "pages/teacher/teacher",
+    "pages/order-personal/order-personal",
+    "pages/order-team/order-team",
+    "pages/list/list",
+    "pages/article/article",
+    "pages/articleTest/articleTest",
+    "pages/articleTestContent/articleTestContent",
+    "pages/articleTestResult/articleTestResult",
+    "pages/accountContact/accountContact",
+    "pages/accountYuyue/accountYuyue",
+    "pages/accountWishlist/accountWishlist",
+    "pages/accountResult/accountResult"
+  ],
+  "window": {
+    "defaultTitle": "欣晴e站心理咨询",
+    "allowsBounceVertical": "NO",
+    "pullRefresh": false
+  },
+  "tabBar": {
+    "textColor": "#B6C3D2",
+    "selectedColor": "#2B2E3D",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/menu_imgs/menu_1.png",
+        "activeIcon": "static/menu_imgs/menu_1a.png"
+      },
+      {
+        "pagePath": "pages/psychologicalTest/psychologicalTest",
+        "name": "心理测评",
+        "icon": "static/menu_imgs/menu_2.png",
+        "activeIcon": "static/menu_imgs/menu_2a.png"
+      },
+      {
+        "pagePath": "pages/microLesson/microLesson",
+        "name": "微课堂",
+        "icon": "static/menu_imgs/menu_3.png",
+        "activeIcon": "static/menu_imgs/menu_3a.png"
+      },
+      {
+        "pagePath": "pages/reservation/reservation",
+        "name": "预约咨询",
+        "icon": "static/menu_imgs/menu_4.png",
+        "activeIcon": "static/menu_imgs/menu_4a.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "name": "我的",
+        "icon": "static/menu_imgs/menu_5.png",
+        "activeIcon": "static/menu_imgs/menu_5a.png"
+      }
+    ]
+  }
+}

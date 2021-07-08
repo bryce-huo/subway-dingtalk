@@ -1,0 +1,46 @@
+<view class="main">
+  <view class="appraisa-process">
+    <view id="question">
+      <view class="content-title">
+        <text id="question-title">
+          1 . 头脑中有不必要的想法或字句盘旋。
+        </text>
+      </view>
+      <view class="content-text question-option">
+        <view class="content-text__item" data-index="1" onTap="select">
+          <text class="content-text__item-left">
+            <view class="content-text__item-radio {{ curSelected == 1 ? 'content-text__item-radio--active' :''}}">
+            </view>
+          </text>
+          <text class="content-text__item-right">
+            轻度
+          </text>
+        </view>
+        <view class="content-text__item" data-index="2" onTap="select">
+          <text class="content-text__item-left">
+            <view class="content-text__item-radio {{ curSelected == 2 ? 'content-text__item-radio--active' :''}}">
+            </view>
+          </text>
+          <text class="content-text__item-right">
+            中度
+          </text>
+        </view>
+        <view class="content-text__item" data-index="3" onTap="select">
+          <text class="content-text__item-left">
+            <view class="content-text__item-radio {{ curSelected == 3 ? 'content-text__item-radio--active' :''}}">
+            </view>
+          </text>
+          <text class="content-text__item-right">
+            严重
+          </text>
+        </view>
+      </view>
+      <view class="tips">
+        <text>当前第1题/共3题</text>
+      </view>
+      <view class="bottom-button">
+        <button type="primary" hover-class="btn-hover" onTap="">上一题</button>
+      </view>
+    </view>
+  </view>
+</view>

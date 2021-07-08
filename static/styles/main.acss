@@ -1,0 +1,400 @@
+/* 加载框架核心样式 */
+/* 规划 H5 端字体 */
+
+/* 页面主体结构 */
+.gui-body{width:750rpx;}
+/* 去除图片空白 */
+.gui-img-in{font-size:0;}
+.gui-flex{display:-webkit-box;display:-webkit-flex;display:flex;}
+.gui-border-box{box-sizing:border-box;}
+.gui-body{width:750rpx; box-sizing:border-box;}
+
+/* flex 布局 */
+.gui-rows{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row;}
+.gui-columns{-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;}
+.gui-wrap{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row; -webkit-flex-wrap:wrap; flex-wrap:wrap;}
+.gui-nowrap{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row; -webkit-flex-wrap:nowrap; flex-wrap:nowrap;}
+.gui-space-around{-webkit-justify-content:space-around;justify-content:space-around;}
+.gui-space-between{-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;}
+.gui-justify-content-start{-webkit-box-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;}
+.gui-justify-content-center{-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;}
+.gui-justify-content-end{-webkit-box-pack:end;-webkit-justify-content:flex-end;justify-content:flex-end;}
+.gui-align-items-start{-webkit-box-align:start;-webkit-align-items:flex-start;align-items:flex-start;}
+.gui-align-items-center{-webkit-box-align:center;-webkit-align-items:center;align-items:center;}
+.gui-align-items-end{-webkit-box-align:end;-webkit-align-items:flex-end;align-items:flex-end;}
+. {-webkit-box-flex:1;-webkit-flex:1;flex:1;}
+/* 文本对齐 */
+.gui-text-left{text-align:left;}
+.gui-text-center{text-align:center;}
+.gui-text-right{text-align:right;}
+.gui-ellipsis{overflow:hidden;}
+.gui-ellipsis{white-space:nowrap; text-overflow:ellipsis;}
+.gui-block-text{display:block;}
+
+/* 文本修饰 */
+.gui-bold{font-weight:bold;}
+.gui-line-through{text-decoration:line-through;}
+.gui-underline{text-decoration:underline;}
+.gui-italic{font-style:italic;}
+/* 定位 */
+.gui-relative{position:relative;}
+.gui-absolute-lt{position:absolute; z-index:2; left:0; top:0;}
+.gui-absolute-rt{position:absolute; z-index:2; right:0; top:0;}
+.gui-absolute-lb{position:absolute; z-index:2; left:0; bottom:0;}
+.gui-absolute-rb{position:absolute; z-index:2; right:0; bottom:0;}
+.gui-fixed-lt{position:fixed; z-index:2; left:0; top:0;}
+.gui-fixed-rt{position:fixed; z-index:2; right:0; top:0;}
+.gui-fixed-lb{position:fixed; z-index:2; left:0; bottom:0;}
+.gui-fixed-rb{position:fixed; z-index:2; right:0; bottom:0;}
+/* 背景色 */
+.gui-bg-red{background-color:#EE0A25 !important;}
+.gui-bg-green{background-color:#07C160 !important;}
+.gui-bg-blue{background-color:#008AFF !important;}
+.gui-bg-orange{background-color:#ED6A0C !important;}
+.gui-bg-yellow{background-color:#FBDE4E !important;}
+.gui-bg-purple{background-color:#8A3FD4 !important;}
+.gui-bg-white{background-color:#FFFFFF !important;}
+.gui-bg-black{background-color:#2B2E3D !important;}
+.gui-bg-black{background-color:#2B2E3D !important;}
+.gui-bg-black2{background-color:#656565 !important;}
+.gui-bg-black3{background-color:#969799 !important;}
+.gui-bg-black4{background-color:#C8C9CC !important;}
+.gui-bg-black-opacity7{background-color:rgba(0,0,0,0.7);}
+.gui-bg-black-opacity5{background-color:rgba(0,0,0,0.5);}
+.gui-bg-black-opacity3{background-color:rgba(0,0,0,0.3);}
+.gui-gtbg-red{background-image:-webkit-linear-gradient(45deg, #FF0066 , #D50000) !important;background-image:linear-gradient(45deg, #FF0066 , #D50000) !important;}
+.gui-gtbg-blue{background-image:-webkit-linear-gradient(45deg, #5887DF , #008AFF) !important;background-image:linear-gradient(45deg, #5887DF , #008AFF) !important;}
+.gui-gtbg-green{background-image:-webkit-linear-gradient(45deg, #39B55A , #8DC63E) !important;background-image:linear-gradient(45deg, #39B55A , #8DC63E) !important;}
+.gui-bg-gray{background-color:#F7F8FA !important;}
+.gui-bg-white{background-color:#FFFFFF !important;}
+/* 内置颜色 */
+.gui-color-black{color:#2B2E3D !important;}
+.gui-color-white{color:#FFFFFF !important;}
+.gui-color-gray{color:rgb(50 58 62 / 60%) !important;}
+.gui-color-gray-light{color:rgba(69, 90, 100, 0.3) !important;}
+.gui-color-blue{color:#008AFF !important;}
+.gui-color-red{color:#EE0A25 !important;}
+.gui-color-orange{color:#ED6A0C !important;}
+.gui-color-purple{color:#8A3FD4 !important;}
+.gui-color-green{color:#39B55A !important;}
+.gui-color-yellow{color:#FBDE4E !important;}
+/* 边框 */
+.gui-border{border:1rpx solid #F1F2F3;}
+.gui-border-l{border-left:1rpx solid #F1F2F3;}
+.gui-border-r{border-right:1rpx solid #F1F2F3;}
+.gui-border-t{border-top:1rpx solid #F1F2F3;}
+.gui-border-b{border-bottom:1rpx solid #e5e6e6;}
+.gui-noborder{border:none !important;}
+
+/* 自定义头部导航相关 */
+.gui-header-content{width:100rpx; -webkit-box-flex:1; -webkit-flex:1; flex:1; text-align:center; margin-left:10rpx; margin-right:168rpx;}
+.gui-headr-back{width:148rpx; line-height:40px; font-size:32rpx;}
+/* 宫格布局 */
+.gui-grids{padding:0;}
+.gui-grids-items{width:138rpx;}
+.gui-grids-items{box-sizing:border-box;}
+.gui-grids-icon{height:80rpx; font-size:68rpx; line-height:80rpx; text-align:center;}
+.gui-grids-icon{display:block; width:100%;}
+.gui-grids-icon-img{width:80rpx; height:80rpx; border-radius:6rpx;}
+.gui-grids-text{line-height:50rpx; text-align:center; font-size:24rpx; margin-top:2px;}
+.gui-grids-text{display:block; width:100%;}
+
+/* 列表样式 */
+.gui-list-items, .gui-list-title{display:-webkit-box;display:-webkit-flex;display:flex;}
+.gui-list-icon, .gui-list-title-text, .gui-list-title-desc, .gui-list-body-desc, .gui-list-arrow-right{display:block;}
+.gui-list-items{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row; -webkit-flex-wrap:nowrap; flex-wrap:nowrap; -webkit-box-align:center; -webkit-align-items:center; align-items:center; -webkit-box-pack:center; -webkit-justify-content:center; justify-content:center;}
+.gui-list-icon{width:80rpx; height:80rpx; line-height:80rpx; text-align:center; font-size:44rpx;}
+.gui-list-image{width:80rpx; height:80rpx; border-radius:80rpx; font-size:0;}
+.gui-list-body{padding:25rpx 0; margin-left:25rpx; width:100rpx; -webkit-box-flex:1; -webkit-flex:1; flex:1;}
+.gui-list-title{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row; -webkit-flex-wrap:nowrap; flex-wrap:nowrap; -webkit-box-pack:justify; -webkit-justify-content:space-between; justify-content:space-between; -webkit-box-align:center; -webkit-align-items:center; align-items:center;}
+.gui-list-one-line{line-height:60rpx !important;}
+.gui-list-title-text{font-size:26rpx; line-height:44rpx;}
+.gui-list-title-desc{font-size:22rpx; line-height:30rpx;}
+.gui-list-body-desc{font-size:22rpx; line-height:32rpx;}
+.gui-list-arrow-right{width:50rpx; height:50rpx; line-height:50rpx; font-size:30rpx; text-align:right;}
+/* 徽章 */
+.gui-badge{border-radius:38rpx; height:38rpx; line-height:38rpx; padding:0 13rpx; font-size:22rpx;}
+.gui-badge-absolute{position:absolute; right:0rpx; top:4rpx; z-index:1;}
+.gui-badge-point{width:20rpx; height:20rpx; border-radius:12rpx; position:absolute; right:4rpx; top:4rpx; z-index:1; background-color:#FF0000;}
+.gui-badge-gender{width:38rpx; height:38rpx; border-radius:30rpx; text-align:center; font-size:22rpx !important; line-height:38rpx; position:absolute; right:6rpx; top:4rpx; z-index:1;}
+/* 滚动区域 */
+.gui-scroll-x{display:-webkit-box;display:-webkit-flex;display:flex; white-space:nowrap;}
+.gui-scroll-x-item, .gui-scroll-x-items{display:-webkit-inline-box;display:-webkit-inline-flex;display:inline-flex; vertical-align:top;}
+.gui-scroll-x{display:block; white-space:nowrap;}
+.gui-scroll-x{width:750rpx; -webkit-box-orient:horizontal; -webkit-box-direction:normal; -webkit-flex-direction:row; flex-direction:row; overflow:hidden;}
+/* 卡片列表 */
+.gui-card-list{}
+.gui-card-item{width:330rpx; margin-bottom:30rpx;}
+.gui-card-img{width:330rpx; height:191rpx; overflow:hidden; position:relative;}
+.gui-card-title{margin-top:3px;}
+.gui-card-desc{margin-top:3px;}
+.gui-card-tip{width:68rpx; height:40rpx; line-height:40rpx; text-align:center;}
+.gui-card-mask-title{line-height:60rpx; height:60rpx; padding:0 10rpx; width:330rpx;}
+/* 底部导航相关 */
+.gui-footer-icon-buttons{width:80rpx; height:80rpx; margin:10rpx;}
+.gui-footer-icon-buttons-icon{text-align:center; font-size:38rpx; line-height:50rpx;}
+.gui-footer-icon-buttons-text{text-align:center; font-size:20rpx; line-height:30rpx;}
+.gui-footer-large-buttons{margin-left:25rpx; margin-right:25rpx;}
+.gui-footer-large-button{width:218rpx; height:80rpx;}
+.gui-footer-large-button-text{line-height:80rpx !important;}
+/* 通用标题布局 */
+.gui-title-line{width:50rpx; height:1px; background-color:#E1E2E3; -webkit-box-flex:1; -webkit-flex:1; flex:1;}
+.gui-title-text{line-height:60rpx;}
+.gui-title-icon{width:50rpx; font-size:32rpx;}
+/* 表单 */
+.gui-form{overflow:hidden;}
+.gui-form-item{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;flex-direction:row; -webkit-flex-wrap:nowrap; flex-wrap:nowrap; -webkit-box-align:center; -webkit-align-items:center; align-items:center;}
+.gui-form-label{width:130rpx; height:100rpx; font-size:28rpx; line-height:100rpx; overflow:hidden;}
+.gui-form-icon{width:60rpx; height:60rpx; line-height:60rpx; font-size:28rpx;}
+.gui-form-body{width:200rpx; margin-left:20rpx; overflow:hidden; -webkit-box-flex:1; -webkit-flex:1; flex:1;}
+.gui-form-input{height:40rpx; line-height:40rpx; margin:20rpx 0; background-color:rgba(255,255,255,0); border-width:0px; font-size:28rpx;}
+.gui-check-item{margin:10rpx 10rpx 0 0; padding:0 10rpx; font-size:28rpx; -webkit-box-orient:horizontal; -webkit-box-direction:normal; -webkit-flex-direction:row; flex-direction:row; -webkit-flex-wrap:nowrap; flex-wrap:nowrap; -webkit-box-align:center; -webkit-align-items:center; align-items:center;}
+.gui-check-item-y{margin:10rpx 0; font-size:28rpx;}
+.gui-textarea{height:120rpx; padding:15rpx; line-height:38rpx; background-color:rgba(255,255,255,0); border-width:0px; font-size:28rpx;}
+@font-face{font-family:"gui-formicons"; src:url('data:application/ttf;charset=utf-8;base64,OLh6+EVGahJS0OU2yaKO26Kiu6Zv+fbC+9P6l/wm8ZwtrOU5zo2XwdDjj7ilb9szx6Pz8hzzU1DUMrbXMHC2NbU15WTlxOxUdK2llbX0DSSdFF0GClXLlRPIOJppGChZi5s6MnpKNvaqMLkwKoD8NsI9B7wqBANQgCNQhGDQgBAwhFKwhHGhBeDCDCOAI2YElRARjiAS2EBlMIQx4iGInC9nJQTHaVXQA60D2CAA33F93FO4gBKhATdCAWWEFskIYcQBnigDbEBX2IBwYQHyQhIThBohj9KScAF0gKAuQMEpALsJAHSEG+/kuiIgA4aBqIoCiQhzQx6qgEABMoBTShNDCC5oAC1AQWUAuIQRYwhzaCM7QFGOgo6EHXQAn6DDbQJNjjczuo4gsok+FuApClC9pt9nPwK3ehR05loNUk');}
+/* 底部导航 */
+.gui-form-item{display:-webkit-box;display:-webkit-flex;display:flex;}
+.gui-form-label, .gui-form-icon{display:block;}
+.gui-form-picker{display:-webkit-box;display:-webkit-flex;display:flex;}
+.gui-check-item{display:flexbox;}
+.gui-check-item-y{display:block;}
+.gui-textarea{box-sizing:border-box;}
+
+/* 评论列表 */
+.gui-comments{}
+.gui-comments-items{margin-top:35rpx;}
+.gui-comments-face{width:80rpx; height:80rpx; border-radius:80rpx; margin-right:25rpx;}
+.gui-comments-body{width:580rpx; overflow:hidden;}
+.gui-comments-header-text{line-height:40rpx;}
+.gui-comments-info{margin-top:2px;}
+.gui-comments-info-text{font-size:22rpx; line-height:40rpx; margin-top:10rpx;}
+.gui-comments-content{line-height:36rpx; font-size:26rpx; padding:8rpx 0;}
+.gui-comments-replay{font-size:24rpx; color:#666666; border-radius:3px; margin:3px 0; padding:15rpx; line-height:36rpx;}
+.gui-comments-replay-btn{font-size:20rpx; line-height:44rpx; padding:0rpx 20rpx; border-radius:44rpx;}
+.gui-comments-imgs{margin:8rpx 0;}
+.gui-comments-image{width:180rpx; height:128rpx; margin-right:10rpx; margin-bottom:10rpx; font-size:0; overflow:hidden;}
+/* 底部导航相关 */
+.gui-footer-input-body{padding:0 20rpx; height:70rpx; border-radius:66rpx; margin:0 30rpx;}
+.gui-footer-input-icon{width:66rpx; text-align:center; line-height:66rpx; font-size:30rpx; margin-right:10rpx;}
+.gui-footer-input{width:100rpx; -webkit-box-flex:1; -webkit-flex:1; flex:1; font-size:26rpx; height:32rpx; line-height:32rpx; padding:0; overflow:hidden;}
+.gui-common-line{height:20rpx; background-color:#F7F8FA;}
+/* css3 动画 不支持 nvue */
+.gui-transition-all{-webkit-transition:all 0.2s ease-in 0s;transition:all 0.2s ease-in 0s;}
+/* 使用记录 : gui-switch-navigation2 gui-popup */
+@-webkit-keyframes gui-fade-in{0%{opacity:0;}
+100%{opacity:1;}}
+@keyframes gui-fade-in{0%{opacity:0;}
+100%{opacity:1;}}
+.gui-fade-in{-webkit-animation:gui-fade-in 350ms ease-in forwards;animation:gui-fade-in 350ms ease-in forwards;}
+/* 使用记录 : gui-image gui-popup */
+@-webkit-keyframes gui-fade-out{0%{opacity:1;}
+100%{opacity:0;}}
+@keyframes gui-fade-out{0%{opacity:1;}
+100%{opacity:0;}}
+.gui-fade-out{-webkit-animation:gui-fade-out 350ms ease-out forwards;animation:gui-fade-out 350ms ease-out forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-top-in{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);}
+100%{-webkit-transform:translateY(0px);transform:translateY(0px);}}
+@keyframes gui-top-in{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);}
+100%{-webkit-transform:translateY(0px);transform:translateY(0px);}}
+.gui-top-in{-webkit-animation:gui-top-in 350ms linear forwards;animation:gui-top-in 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-top-out{0%{-webkit-transform:translateY(0px);transform:translateY(0px);}
+100%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);}}
+@keyframes gui-top-out{0%{-webkit-transform:translateY(0px);transform:translateY(0px);}
+100%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);}}
+.gui-top-out{-webkit-animation:gui-top-out 350ms linear forwards;animation:gui-top-out 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-bottom-in{0%{-webkit-transform:translateY(600px);transform:translateY(600px);}
+100%{-webkit-transform:translateY(0px);transform:translateY(0px);}}
+@keyframes gui-bottom-in{0%{-webkit-transform:translateY(600px);transform:translateY(600px);}
+100%{-webkit-transform:translateY(0px);transform:translateY(0px);}}
+.gui-bottom-in{-webkit-animation:gui-bottom-in 350ms linear forwards;animation:gui-bottom-in 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-bottom-out{0%{-webkit-transform:translateY(0px);transform:translateY(0px);}
+100%{-webkit-transform:translateY(600px);transform:translateY(600px);}}
+@keyframes gui-bottom-out{0%{-webkit-transform:translateY(0px);transform:translateY(0px);}
+100%{-webkit-transform:translateY(600px);transform:translateY(600px);}}
+.gui-bottom-out{-webkit-animation:gui-bottom-out 350ms linear forwards;animation:gui-bottom-out 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-left-in{0%{-webkit-transform:translateX(-600px);transform:translateX(-600px);}
+100%{-webkit-transform:translateX(0px);transform:translateX(0px);}}
+@keyframes gui-left-in{0%{-webkit-transform:translateX(-600px);transform:translateX(-600px);}
+100%{-webkit-transform:translateX(0px);transform:translateX(0px);}}
+.gui-left-in{-webkit-animation:gui-left-in 350ms linear forwards;animation:gui-left-in 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-left-out{0%{-webkit-transform:translateX(0px);transform:translateX(0px);}
+100%{-webkit-transform:translateX(-600px);transform:translateX(-600px);}}
+@keyframes gui-left-out{0%{-webkit-transform:translateX(0px);transform:translateX(0px);}
+100%{-webkit-transform:translateX(-600px);transform:translateX(-600px);}}
+.gui-left-out{-webkit-animation:gui-left-out 350ms linear forwards;animation:gui-left-out 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-right-in{0%{-webkit-transform:translateX(600px);transform:translateX(600px);}
+100%{-webkit-transform:translateX(0px);transform:translateX(0px);}}
+@keyframes gui-right-in{0%{-webkit-transform:translateX(600px);transform:translateX(600px);}
+100%{-webkit-transform:translateX(0px);transform:translateX(0px);}}
+.gui-right-in{-webkit-animation:gui-right-in 350ms linear forwards;animation:gui-right-in 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-right-out{0%{-webkit-transform:translateX(0px);transform:translateX(0px);}
+100%{-webkit-transform:translateX(600px);transform:translateX(600px);}}
+@keyframes gui-right-out{0%{-webkit-transform:translateX(0px);transform:translateX(0px);}
+100%{-webkit-transform:translateX(600px);transform:translateX(600px);}}
+.gui-right-out{-webkit-animation:gui-right-out 350ms linear forwards;animation:gui-right-out 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-scale-in{0%{-webkit-transform:scale(0.3,0.3);transform:scale(0.3,0.3);}
+100%{-webkit-transform:scale(1,1);transform:scale(1,1);}}
+@keyframes gui-scale-in{0%{-webkit-transform:scale(0.3,0.3);transform:scale(0.3,0.3);}
+100%{-webkit-transform:scale(1,1);transform:scale(1,1);}}
+.gui-scale-in{-webkit-animation:gui-scale-in 350ms linear forwards;animation:gui-scale-in 350ms linear forwards;}
+/* 使用记录 : gui-popup */
+@-webkit-keyframes gui-scale-out{0%{-webkit-transform:scale(1,1);transform:scale(1,1);}
+100%{-webkit-transform:scale(0.3,0.3);transform:scale(0.3,0.3);}}
+@keyframes gui-scale-out{0%{-webkit-transform:scale(1,1);transform:scale(1,1);}
+100%{-webkit-transform:scale(0.3,0.3);transform:scale(0.3,0.3);}}
+.gui-scale-out{-webkit-animation:gui-scale-out 350ms linear forwards;animation:gui-scale-out 350ms linear forwards;}
+/* 使用记录 : gui-page */
+@-webkit-keyframes gui-rotate360{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg);}
+50%{-webkit-transform:rotate(180deg);transform:rotate(180deg);}
+100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);}}
+@keyframes gui-rotate360{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg);}
+50%{-webkit-transform:rotate(180deg);transform:rotate(180deg);}
+100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);}}
+.gui-rotate360{-webkit-animation:gui-rotate360 1200ms infinite linear;animation:gui-rotate360 1200ms infinite linear;}
+
+/* 不支持 nvue 的常用样式 */
+.gui-box-shadow{box-shadow:0px 0px 16rpx #323232;}
+.gui-transition-all{-webkit-transition:all 0.2s ease-in 0s;transition:all 0.2s ease-in 0s;}
+::-webkit-scrollbar {display: none;}
+
+/* 加载主题样式 */
+/* 文本核心色 一般为黑色 */
+.gui-primary-color{color:#2B2E3D;}
+/* 核心背景色 */
+.gui-bg-primary{background-color:#2B2E3D !important;}
+/* 点击元素通用样式 */
+.gui-tap{opacity:0.85;}
+/* 购物按钮渐变背景色 */
+.gui-bg-add-card{background-image:-webkit-linear-gradient(left, #F1CF53,#F29C39) !important;background-image:linear-gradient(to right, #F1CF53,#F29C39) !important;}
+.gui-bg-buy{background-image:-webkit-linear-gradient(left, #E86E35,#EB5058) !important;background-image:linear-gradient(to right, #E86E35,#EB5058) !important;}
+/* *** 间距设置 */
+.gui-padding{padding-left:30rpx; padding-right:30rpx;}
+/* 左右内间距 */
+.gui-margin{margin-left:30rpx; margin-right:30rpx;}
+/* 左右外间距 */
+.gui-margin-top{margin-top:30rpx;}
+/* 顶部外间距 */
+.gui-margin-top-large{margin-top:58rpx;}
+/* 顶部外间距 大 */
+/* 间距设置 *** */
+/* 文本尺寸 */
+.gui-text{font-size:28rpx; line-height:50rpx; color:#2B2E3D;}
+.gui-text-small{font-size:22rpx;}
+.gui-h1{font-size:80rpx;}
+.gui-h2{font-size:60rpx;}
+.gui-h3{font-size:45rpx;}
+.gui-h4{font-size:32rpx;}
+.gui-h5{font-size:30rpx;}
+.gui-h6{font-size:28rpx;}
+.gui-indent{text-indent:56rpx;}
+
+
+
+
+/* *** gui-page 页面组件相关  */
+.gui-page-loading-bg{background-color:rgba(255,255,255,0.88);}
+/* 页面内置全屏 Loading 背景颜色 */
+.gui-page-loading-color{background-color:#2B2E3D;}
+/* 页面内置全屏 Loading 颜色 */
+.gui-header-buttons-bg{background-color:rgba(0,0,0,0.8);}
+/* 自定义导航左侧按钮背景颜色 */
+.gui-header-buttons-color{color:#FFFFFF;}
+/* 自定义导航左侧按钮颜色 */
+.gui-nav-bottom-color{color:#B6C3D2;}
+/* 底部自定义导航默认色 */
+.gui-nav-bottom-active-color{color:#2B2E3D;}
+/* 底部自定义导航切换色 */
+/* gui-page 页面组件相关 *** */
+/* 圆角 */
+.gui-border-radius-small{border-radius:6rpx;}
+.gui-border-radius{border-radius:10rpx;}
+.gui-border-radius-large{border-radius:20rpx;}
+/* 按钮 基于原生组件的修饰 */
+.button-hover{opacity:0.8;}
+.gui-button-text{font-size:28rpx; line-height:88rpx; text-align:center;}
+.gui-button-text-mini{font-size:22rpx; line-height:58rpx; text-align:center;}
+.gui-button-mini{height:58rpx;}
+.gui-button{line-height:88rpx; border-radius:5rpx; background:transparent; margin:0; color:transparent; border:0; text-align:center; padding:0;}
+.gui-button::after{width:0; height:0; -webkit-transform: scale(1); transform: scale(1); display:none; background:transparent;}
+.gui-button[disabled][type=default]{opacity:0.5;}
+.gui-button[type=default][size=mini]{font-size:22rpx; height:58rpx; line-height:58rpx; background:none;}
+
+
+
+
+/* 按钮 组件 框架自定义样式 */
+.gui-sbutton{width:230rpx; height:80rpx; border-radius:8rpx; padding:0; margin:0;}
+.gui-sbutton-text{font-size:30rpx; line-height:80rpx; text-align:center; color:#FFFFFF;}
+.gui-sbutton-loading-point{width:8rpx; height:8rpx; border-radius:8rpx; margin:8rpx; background-color:#FFFFFF;}
+.gui-sbutton-default{background-color:#3688FF;}
+.gui-sbutton-loading{background-color:#3688FF; opacity:0.8;}
+.gui-sbutton-success{background-color:#07C160 !important;}
+.gui-sbutton-fail{background-color:#FF0036 !important;}
+/* *** gui-select-list 可选列表样式 */
+.gui-select-list-ring{font-size:32rpx; font-weight:bold;}
+/* 左侧选择圆环 */
+.gui-select-list-img{width:66rpx; height:66rpx; border-radius:60rpx; margin-right:28rpx;}
+/* 图片样式 */
+.gui-select-list-title{font-size:28rpx; line-height:50rpx; color:#2B2E3D;}
+/* 标题样式 */
+.gui-select-list-desc{font-size:22rpx; color:#828282; line-height:33rpx;}
+/* 描述小文本 */
+.gui-select-list-icon{width:60rpx; line-height:60rpx; font-size:36rpx; text-align:center; color:rgba(69, 90, 100, 0.3);}
+/* 选中图标 */
+.gui-select-list-current{color:#2B2E3D !important;}
+/* 选中颜色 */
+/* 可选列表样式 *** */
+/* *** gui-slide-list 滑动列表样式 */
+.gui-slide-list-img-wrap{width:80rpx; height:80rpx; margin-left:25rpx;}
+/* 列表图片外层样式 */
+.gui-slide-list-img{width:80rpx; height:80rpx; border-radius:6rpx;}
+/* 列表图片外层样式 */
+.gui-slide-list-point{border-radius:32rpx; height:32rpx; line-height:32rpx; padding:0 10rpx; font-size:20rpx;}
+/* 消息数标签样式 */
+.gui-slide-list-point{min-width:12rpx;}
+.gui-slide-list-title-text{line-height:38rpx; height:38rpx; font-size:28rpx; color:#2B2E3D; overflow:hidden;}
+/* 消息标题样式 */
+.gui-slide-list-desc{line-height:32rpx; height:32rpx; font-size:22rpx; color:rgba(69, 90, 100, 0.3); overflow:hidden; margin-right:25rpx; margin-top:2px;}
+/* 消息描述样式 */
+/* 滑动列表样式 *** */
+/* *** gui-tree 树状列表样式 */
+.gui-tree-icons{width:50rpx;}
+/* 图标样式 */
+.gui-tree-icons-text{font-size:32rpx; color:rgba(69, 90, 100, 0.3);}
+.gui-tree-title{line-height:80rpx; font-size:28rpx; width:200rpx;}
+/* 标题样式 */
+.gui-tree-current{color:#2B2E3D;}
+/* 选中样式 */
+/* 树状列表样式 *** */
+/* *** gui-segmented-control 分段器样式 */
+.gui-segmented-control{background-color:#F8F8F8; padding:8rpx;}
+/* 外层主体 */
+.gui-segmented-control-item{color:#2B2E3D; font-size:26rpx; line-height:66rpx;}
+/* 项目标题 */
+.gui-segmented-current{background-color:#2B2E3D; color:#FFFFFF;}
+/* 激活样式 */
+/* 分段器样式 *** */
+/* *** 为空展示默认图片大小 */
+.gui-empty-img{width:320rpx; height:320rpx; margin-top:200rpx;}
+/* 演示 : 提交按钮 自定义样式  */
+.mygui-sbutton{width:230rpx; height:80rpx; border-radius:80rpx; padding:0; margin:0;}
+.mygui-sbutton-text{font-size:28rpx; line-height:80rpx; text-align:center; color:#FFFFFF;}
+.mygui-sbutton-loading-point{width:6rpx; height:6rpx; border-radius:10rpx; margin:8rpx; background-color:#FFFFFF;}
+.mygui-sbutton-default{background-color:#2B2E3D;}
+.mygui-sbutton-loading{background-color:#3688FF; opacity:0.8;}
+.mygui-sbutton-success{background-color:#07C160;}
+.mygui-sbutton-fail{background-color:#FF0036;}
+/* 加载图标字体 - 条件编译模式 */
+
+
+
+

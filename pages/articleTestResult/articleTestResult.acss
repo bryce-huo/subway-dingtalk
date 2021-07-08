@@ -1,0 +1,31 @@
+.result-title {
+  margin: 0 0.3rem;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 0.5rem;
+  font-size: 0.3rem;
+  color: #577df7;  
+}
+.result-content {
+  padding: 0.3rem 0.3rem; 
+}
+.result-content-main {
+  border: 1px solid #eca7ce;
+  display: block;
+  padding: 0.3rem;
+  background: #fbcce6;
+  line-height: 0.5rem;
+  border-radius: 5px; 
+}
+.result-content-tips {
+  display: block;
+  text-align: center;
+  color: #bbb8b8;
+  font-size: 0.2rem;
+  margin: .2rem 0;  
+}
+.wirte-review {
+  border-top: 10px solid #f3f3f3;
+}
+.wirte-review .gui-form-input{
+  width: 100%;
+}

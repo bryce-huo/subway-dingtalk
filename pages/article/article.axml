@@ -1,0 +1,41 @@
+<view class="main" style="background:#fff;">
+  <!-- 文章标题 -->
+  <view class="gui-padding">
+    <text class="gui-h4 gui-block-text article-title">多和朋友聊天不能治抑郁</text>
+    <text class="gui-product-other gui-block-text gui-color-gray">
+      <text class="iconfont icon-laba" style="font-size:25rpx;margin-right:8rpx"></text>
+        213123已听
+    </text>
+  </view>
+  <!-- 文章内容 -->
+  <view>
+    <view class="gui-editor-show gui-border-box" style="padding: 30rpx">
+      <!-- 音频 -->
+      <view class="article-audio">
+        <text class="gui-block-text gui-text-center gui-color-red">===音频===</text>
+        <view class="article-audio__image">
+          <image a:if="{{audioInit}}" class="image" style="width:100%;height:350rpx"
+          mode="aspectFill" src="https://mms0.baidu.com/it/u=1251739379,3729068254&fm=27&gp=0.jpg"/>
+          <image a:else class="image" style="width:100%;height:350rpx"
+          mode="aspectFill" src="https://via.placeholder.com/500x300.png?text=Cover"/>
+          
+          <view a:if="{{audioInit}}" class="article-audio__btn article-audio__btn-init" onTap="playToggle">
+            <text class="iconfont icon-erji"></text>
+            <text a:if="{{audioPlay}}">正在收听</text>
+            <text a:else>暂停收听</text>
+          </view>
+          <view a:else class="article-audio__btn article-audio__btn-init" onTap="initAudio"><text class="iconfont icon-erji"></text>点击收听</view>
+        </view>
+        <view class="article-audio-descrition">
+          如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了...
+        </view>
+      </view>
+      <!-- 富文本 -->
+      <view class="article-richtext">
+        <text class="gui-block-text gui-text-center gui-color-red">===富文本===</text>
+        <rich-text nodes="{{nodes}}">
+        </rich-text>
+      </view>
+    </view>  
+  </view>
+</view>

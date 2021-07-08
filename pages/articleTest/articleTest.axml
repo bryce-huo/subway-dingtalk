@@ -1,0 +1,79 @@
+<view class="main">
+  <view class="article-test__wrap">
+    <image mode="aspectFill" class="article-test__banner" src="http://m.xinrunjiamei.com/uploads/20190227/6d02f0d0cb300f95f4cc2bb3d448806e.jpg"></image>
+  <view>
+  <view class="article-test__content">
+    <view class="article-test__title">
+      <text class="article-test__title-left">症状自评量表SCL90</text>
+      <text class="article-test__title-right iconfont icon-fenxiang"></text>
+    </view>
+    <view class="article-test__desc">
+      <text>
+        每个人都非常关心自己的健康，无论是心理上的还是生理上的，那么，什么才是心理健康呢？它是指人的内部心理与外部行为和谐、统一，并能良好的适应社会、环境的一种心理状态。
+      </text>
+    </view>
+    <view class="article-test__tips">
+      <view class="tips_left">
+        <view class="tips_left_box">
+          <text class="iconfont icon-edit_light"></text>
+          <text class="text">20道题</text>
+        </view>
+      </view>
+      <view class="tips_right">
+        <view class="tips_right_box">
+          <text class="iconfont icon-hot_light"></text>
+          <text class="text">1345人已测试</text>
+        </view>
+      </view>
+    </view>
+    <view class="article-text__btns">
+      <button type="primary" hover-class="btn-hover" onTap="testStart">立即测试</button>
+    </view>
+    <view class="option">
+      <view class="option_left">
+        <navigator open-type="navigate" url="">
+          <text class="iconfont icon-arrow-left"></text>
+          <text>上一题</text>
+        </navigator>
+      </view>
+      <view class="option_right">
+        <navigator open-type="navigate" url="">
+          <text>下一题</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 用户评价 -->
+  <view class="reviews">
+    <view class="reviews-content">
+      <view class="page-section-title gui-h5"><text style="color:#fc8628;">用户</text>评价</view>
+      <view class="page-section-content">
+        <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
+          <view class="gui-cate-pimg">
+            <image class="image"
+              mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKZ3vgW6RWcE6ceS4Aa1VUBw4VgpAkhwRpDA2QdzW7n940DmrkgvTQy2n9hJkbwZPU0X0e0ic93tOQ/132" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+          </view>
+          <view class="gui-cate-pbody">
+            <text class="gui-text gui-product-title gui-primary-color gui-block-text">金丝雀</text>
+            <view class="gui-flex gui-columns gui-space-between">
+              <text class="gui-product-description gui-color-gray">与自己情况符合</text>
+            </view>
+          </view>
+        </view>
+        <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
+          <view class="gui-cate-pimg">
+            <image class="image"
+              mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKZ3vgW6RWcE6ceS4Aa1VUBw4VgpAkhwRpDA2QdzW7n940DmrkgvTQy2n9hJkbwZPU0X0e0ic93tOQ/132" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+          </view>
+          <view class="gui-cate-pbody">
+            <text class="gui-text gui-product-title gui-primary-color gui-block-text">金丝雀</text>
+            <view class="gui-flex gui-columns gui-space-between">
+              <text class="gui-product-description gui-color-gray">与自己情况符合</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+.a-page {
+  background: #F7F7F7;
+}
+.card-title {
+  padding: .3rem;
+  padding-bottom: 0;
+}
+.card-wrap {
+  padding: 0.3rem 0.3rem;
+}
+.card-item {
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  background: #fff;
+  padding: 0.2rem;
+  margin-bottom: .3rem;
+}
+.card-item__list {
+  font-size: .28rem;
+  line-height: 0.5rem;
+}
+.card-item__list-label {
+  width: 1.8rem;
+  color: #a7a7a7;
+}
+.card-item__list-info {
+    width: 1rem;
+    flex: 1;
+}

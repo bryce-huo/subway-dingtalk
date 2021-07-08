@@ -1,0 +1,77 @@
+<view class="main">
+  <view class="page">
+    <!-- 推荐 -->
+    <view class="page-section">
+      <view class="page-section-title gui-h5"><text style="color:#ed6a0c;">推荐</text>咨询师</view>
+      <view class="page-section-content scroll-view-style2">
+        <scroll-view class="gui-flex gui-rows gui-nowrap" scroll-x="{{true}}" style="width: 100%" >
+          <view class="scroll-view-item">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id=1">
+              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
+              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+            </navigator>
+          </view>
+          <view class="scroll-view-item">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id=2">
+              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
+              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+            </navigator>
+          </view>
+          <view class="scroll-view-item">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id=3">
+              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
+              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+            </navigator>
+          </view>
+          <view class="scroll-view-item">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id=4">
+              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
+              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+            </navigator>
+          </view>
+          <view class="scroll-view-item">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id=5">
+              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
+              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+            </navigator>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <!-- 全部咨询师 -->
+    <view class="page-section page-section-nomargin">
+      <view class="page-section-title gui-h5"><text style="color:#1aa533;">全部</text>咨询师</view>
+      <view class="page-section-content">
+        <navigator open-type="navigate" url="/pages/teacher/teacher?id={{product.id}}" 
+          a:for="{{allTeacher}}" a:for-item="product" a:for-index="index" a:key="index"
+          >
+          <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
+              <view class="gui-cate-pbody">
+                <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                <view class="gui-flex gui-columns gui-space-between">
+                  <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
+                  <text class="gui-product-other gui-color-gray">371人已咨询</text>
+                </view>
+              </view>
+              <view class="gui-cate-pimg">
+                <image class="image"
+                  data-name="center"
+                  mode="aspectFill" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+              </view>
+          </view>
+        </navigator>
+      </view>
+      <!-- 加载更多 -->
+      <view class="gui-page-loadmore">
+       <view class="gui-page-loadmore">
+          <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
+            <view class="gui-load-more-icon">
+              <text class="iconfont icon-loading gui-rotate360 gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);"></text>
+            </view>
+            <text class="gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);">更多数据加载中</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<view class="main" class="gui-flex1" ref="guiPage">
+  <!-- 搜索框 -->
+  <view class="header-search gui-bg-gray gui-border-box">
+    <view class="search-outer">
+      <icon type="search" size="16"/>
+      <input
+        class="search-input"
+        placeholder="关键字"
+        value="{{search}}"
+        onConfirm="doneSearch"
+        onInput="handleSearch"
+      />
+      <text class="search-cancel" onTap="clearSearch">取消</text>
+    </view>
+  </view>
+  <view class="gui-flex gui-rows gui-space-between gui-cate-content">
+    <!-- 左侧分类列表 -->
+    <scroll-view scroll-y="{{true}}" show-scrollbar="{{false}}" 
+    scroll-with-animation="{{true}}" class="gui-cate-left" style="height:{{mainHeight}}px;">
+      <view class="gui-cate-left-item gui-border-box {{currentCateIndex == item.cateid ? 'gui-cate-left-current' : ''}}" 
+      a:for="{{mainCate}}" a:for-item="item" a:for-index="index" a:key="index">
+        <text class="gui-border-l gui-cate-left-item-title gui-block-text {{currentCateIndex == item.cateid ? 'gui-cate-left-current' : ''}}" 
+        data-cateid="{{item.cateid}}" onTap='changCate' 
+        id="cate{{item.cateid}}">{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <!-- 右侧列表 -->
+    <scroll-view 
+      show-scrollbar="{{false}}" onScrollToLower="onScrollToLower"
+      scroll-with-animation="{{true}}" scroll-y="{{true}}" 
+      class="gui-cate-right" 
+      style="height:{{mainHeight}}px;">
+        <!-- 循环展示分类及分类对应的产品列表 -->
+        <view class="gui-margin-top" id="productList">
+          <view a:if="{{ products.length > 0 }}">
+            <!-- 循环展示产品 -->
+            <navigator open-type="navigate" url="/pages/article/article" hover-class="navigator-hover" 
+              a:for="{{products}}" a:for-item="product" a:for-index="index" a:key="index"
+              >
+              <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list" >
+                <view class="gui-cate-pbody">
+                  <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                  <view class="gui-flex gui-columns gui-space-between">
+                    <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
+                    <text class="gui-product-other gui-color-gray">
+                      <text class="iconfont icon-video" style="font-size:25rpx;margin-right:8rpx"></text>371人已测
+                    </text>
+                  </view>
+                </view>
+                <view class="gui-cate-pimg">
+                  <image class="image"
+                    data-name="center"
+                    mode="center" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                </view>
+              </view>
+            </navigator>
+          </view>
+          <view a:else>
+            <view class="gui-flex gui-columns gui-justify-content-center gui-align-items-center">
+              <view slot="img" class="gui-flex gui-rows gui-justify-content-center">
+                <image class="gui-empty-img" src="/static/empty.jpg"></image>
+              </view>
+              <text slot="text" 
+                class="gui-text-small gui-block-text gui-text-center gui-margin-top" style="color:#9DABFF;">暂无数据 ......</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+  </view>
+</view>

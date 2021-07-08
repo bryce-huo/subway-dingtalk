@@ -1,0 +1,71 @@
+/* 图标加载 */
+@font-face {
+  font-family: "iconfont"; /* Project id 2638939 */
+  src: url('//at.alicdn.com/t/font_2638939_nmzn3zunvw.woff2?t=1625500082463') format('woff2'),
+       url('//at.alicdn.com/t/font_2638939_nmzn3zunvw.woff?t=1625500082463') format('woff'),
+       url('//at.alicdn.com/t/font_2638939_nmzn3zunvw.ttf?t=1625500082463') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fenxiang:before {
+  content: "\e739";
+}
+
+.icon-hot_light:before {
+  content: "\e7e0";
+}
+
+.icon-arrow-right:before {
+  content: "\e743";
+}
+
+.icon-arrow-left:before {
+  content: "\e744";
+}
+
+.icon-arrow-up:before {
+  content: "\e745";
+}
+
+.icon-arrow-down:before {
+  content: "\e7b2";
+}
+
+.icon-erji:before {
+  content: "\e600";
+}
+
+.icon-emoji:before {
+  content: "\e64a";
+}
+
+.icon-home:before {
+  content: "\e6b8";
+}
+
+.icon-video:before {
+  content: "\e7c8";
+}
+
+.icon-message_light:before {
+  content: "\e7db";
+}
+
+.icon-edit_light:before {
+  content: "\e7de";
+}
+
+.icon-laba:before {
+  content: "\e643";
+}
+
+.icon-loading:before {
+  content: "\e646";
+}
