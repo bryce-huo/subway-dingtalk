@@ -1,45 +1,29 @@
 <view class="main">
-  <view class="appraisa-process">
+  <view a:if="{{ pageLoaded }}" class="appraisa-process">
     <view id="question">
       <view class="content-title">
         <text id="question-title">
-          1 . 头脑中有不必要的想法或字句盘旋。
+          {{subject_index}}. {{subjects[subject_index-1].title}}
         </text>
       </view>
       <view class="content-text question-option">
-        <view class="content-text__item" data-index="1" onTap="select">
+        <view 
+          a:for="{{subjects[subject_index-1].options}}" a:for-item="item" a:for-index="index" a:key="index"
+          class="content-text__item" data-index="{{index+1}}" data-score="{{item.score}}" onTap="select">
           <text class="content-text__item-left">
-            <view class="content-text__item-radio {{ curSelected == 1 ? 'content-text__item-radio--active' :''}}">
+            <view class="content-text__item-radio {{ option_choose[subject_index-1] == (index + 1) ? 'content-text__item-radio--active' :''}}">
             </view>
           </text>
           <text class="content-text__item-right">
-            轻度
-          </text>
-        </view>
-        <view class="content-text__item" data-index="2" onTap="select">
-          <text class="content-text__item-left">
-            <view class="content-text__item-radio {{ curSelected == 2 ? 'content-text__item-radio--active' :''}}">
-            </view>
-          </text>
-          <text class="content-text__item-right">
-            中度
-          </text>
-        </view>
-        <view class="content-text__item" data-index="3" onTap="select">
-          <text class="content-text__item-left">
-            <view class="content-text__item-radio {{ curSelected == 3 ? 'content-text__item-radio--active' :''}}">
-            </view>
-          </text>
-          <text class="content-text__item-right">
-            严重
+            {{item.option}}
           </text>
         </view>
       </view>
       <view class="tips">
-        <text>当前第1题/共3题</text>
+        <text>当前第{{subject_index}}题/共{{subjects.length}}题</text>
       </view>
-      <view class="bottom-button">
-        <button type="primary" hover-class="btn-hover" onTap="">上一题</button>
+      <view a:if="{{subject_index > 1}}" class="bottom-button">
+        <button type="primary" hover-class="btn-hover" onTap="preSubject">上一题</button>
       </view>
     </view>
   </view>

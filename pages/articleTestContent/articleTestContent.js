@@ -1,7 +1,12 @@
 Page({
   data: {
+    pageLoaded: false,
+
     subjects: [], // 所有题目
-    curSelected: null
+    
+    subject_index: 1,
+    option_choose: null, // 已选择答案
+    score_choose: null  // 已选择分数
   },
   onLoad(query) {
     dd.showLoading({
@@ -23,6 +28,8 @@ Page({
         if(res.data.status_code === 200) {
           self.setData({
             subjects: res.data.data.subjects,
+            option_choose: new Array(res.data.data.subject_count),
+            score_choose: new Array(res.data.data.subject_count)
           });
         }
       },
@@ -30,22 +37,72 @@ Page({
       },
       complete: function(res) {
         dd.hideLoading();
+        self.setData({
+          pageLoaded: true
+        })
       }
     });
   },
   select(event) {
-    var index = event.target.dataset.index;
+    var self = this;
+    var data = event.target.dataset;
+    var $subject_index = this.data.subject_index;
+    var $option_choose = this.data.option_choose;
+    var $score_choose = this.data.score_choose;
+
+    $option_choose[$subject_index - 1] = data.index;
+    $score_choose[$subject_index - 1] = data.score;
+
     this.setData({
-      curSelected: index
+      option_choose: $option_choose,
+      score_choose: $score_choose,
     });
-    dd.showLoading({
-      content: '结果页...',
-    });
+
+    // console.log(this.data.option_choose);
+    // console.log(this.data.score_choose);
+
+    // 为了有选中效果，加个延迟队列
     setTimeout(function() {
-      dd.hideLoading();
-      dd.navigateTo({
-        url: '/pages/articleTestResult/articleTestResult'
-      })
-    }, 1500)
+      if(self.data.subject_index < self.data.subjects.length) {
+        self.setData({
+          subject_index: self.data.subject_index + 1
+        })
+      } else {
+        dd.confirm({
+          title: '提示',
+          content: '是否提交？',
+          confirmButtonText: '提交',
+          cancelButtonText: '取消',
+          success: (result) => {
+            dd.navigateTo({
+              url: '/pages/articleTestResult/articleTestResult'
+            })
+          },
+        });
+      }
+    }, 300)
+  },
+  preSubject() {
+    var self = this;
+    var $subject_index = self.data.subject_index;
+    var $option_choose = self.data.option_choose;
+    var $score_choose = self.data.score_choose;
+
+    $option_choose.forEach((element, key) => {
+      if(key >= ($subject_index - 1)) {
+        delete $option_choose[key];
+      }
+    });
+    $score_choose.forEach((element, key) => {
+      if(key >= ($subject_index - 1)) {
+        delete $score_choose[key];
+      }
+    });
+
+    this.setData({
+      subject_index: $subject_index - 1,
+      option_choose: $option_choose,
+      score_choose: $score_choose,
+    }); 
   }
 });
