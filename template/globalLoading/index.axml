@@ -1,0 +1,38 @@
+<template name="globalLoading">
+  <view class="skeleton" a:if="{{type=='home'}}">
+    <view class="skeleton-square__wrap">
+      <view class="skeleton-square loading"></view> 
+      <view class="skeleton-right">
+        <view class="skeleton-line loading"></view> 
+        <view class="skeleton-line loading"></view> 
+      </view>
+    </view>
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-banner loading"></view> 
+    <view class="skeleton-cate">
+      <view class="skeleton-cate__item loading"></view>
+      <view class="skeleton-cate__item loading"></view>
+      <view class="skeleton-cate__item loading"></view>
+    </view>
+    <view class="skeleton-line loading" style="width: 50%"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view style="height: 15px;"></view>
+    <view class="skeleton-line loading" style="width: 50%"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-line loading"></view> 
+  </view>
+  <view class="skeleton" a:if="{{type=='list'}}">
+    <view class="skeleton-line loading" style="width: 50%"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view style="height: 15px;"></view>
+    <view class="skeleton-line loading" style="width: 50%"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view style="height: 15px;"></view>
+    <view class="skeleton-line loading" style="width: 50%"></view> 
+    <view class="skeleton-line loading"></view> 
+    <view class="skeleton-line loading"></view> 
+  </view>
+</template>

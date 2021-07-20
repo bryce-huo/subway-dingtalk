@@ -1,38 +1,15 @@
 <view class="main">
-  <view class="page">
+  <view a:if="{{pageLoaded}}" class="page">
     <!-- 推荐 -->
     <view class="page-section">
       <view class="page-section-title gui-h5"><text style="color:#ed6a0c;">推荐</text>咨询师</view>
       <view class="page-section-content scroll-view-style2">
         <scroll-view class="gui-flex gui-rows gui-nowrap" scroll-x="{{true}}" style="width: 100%" >
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/teacher/teacher?id=1">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
-              <text class="gui-block-text scroll-view-item__text">区文俊</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/teacher/teacher?id=2">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
-              <text class="gui-block-text scroll-view-item__text">区文俊</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/teacher/teacher?id=3">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
-              <text class="gui-block-text scroll-view-item__text">区文俊</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/teacher/teacher?id=4">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
-              <text class="gui-block-text scroll-view-item__text">区文俊</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/teacher/teacher?id=5">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg"></image>
-              <text class="gui-block-text scroll-view-item__text">区文俊</text>
+          <view class="scroll-view-item" 
+            a:for="{{teacherFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
+            <navigator open-type="navigate" url="/pages/teacher/teacher?id={{item.id}}">
+              <image mode="aspectFill" src="{{item.avatar}}"></image>
+              <text class="gui-block-text scroll-view-item__text">{{item.name}}</text>
             </navigator>
           </view>
         </scroll-view>
@@ -42,27 +19,27 @@
     <view class="page-section page-section-nomargin">
       <view class="page-section-title gui-h5"><text style="color:#1aa533;">全部</text>咨询师</view>
       <view class="page-section-content">
-        <navigator open-type="navigate" url="/pages/teacher/teacher?id={{product.id}}" 
-          a:for="{{allTeacher}}" a:for-item="product" a:for-index="index" a:key="index"
+        <navigator open-type="navigate" url="/pages/teacher/teacher?id={{item.id}}" 
+          a:for="{{allTeachers}}" a:for-item="item" a:for-index="index" a:key="index"
           >
           <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
               <view class="gui-cate-pbody">
-                <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{item.name}}</text>
                 <view class="gui-flex gui-columns gui-space-between">
-                  <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
-                  <text class="gui-product-other gui-color-gray">371人已咨询</text>
+                  <text class="gui-product-description gui-color-gray">{{item.intro}}</text>
+                  <text class="gui-product-other gui-color-gray">{{item.clicks}}人已咨询</text>
                 </view>
               </view>
               <view class="gui-cate-pimg">
                 <image class="image"
                   data-name="center"
-                  mode="aspectFill" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                  mode="aspectFill" src="{{item.avatar}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
               </view>
           </view>
         </navigator>
       </view>
       <!-- 加载更多 -->
-      <view class="gui-page-loadmore">
+      <view a:if="{{loading}}" class="gui-page-loadmore">
        <view class="gui-page-loadmore">
           <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
             <view class="gui-load-more-icon">

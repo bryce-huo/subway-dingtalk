@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "dingtalk-design-libs": "^0.0.19",
     "fontawesome": "^5.6.3"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

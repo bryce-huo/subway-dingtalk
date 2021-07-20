@@ -1,6 +1,7 @@
-// require('./common/runtime.js')
-// require('./common/vendor.js')
+// import { assign } from 'lodash';
+// import assign from 'lodash/assign';
 
+// import { onAuthAppBack } from 'dingtalk-design-libs/biz/openAuthMiniApp';
 
 App({
   onLaunch (options) {
@@ -9,9 +10,13 @@ App({
     // const { corpId } = query;
   },
   onShow (options) {
-    // 从后台被scheme重新打开时调用
-    // const { query, path } = options;
-    // const { corpId } = query;
+    // 获取免登授权码（这个方法api文档提供）
+    dd.getAuthCode({
+      success: res => {
+        console.log(res);
+        //this.authCode = res.authCode
+      }
+    })
   },
   onHide () {
     // 进入后台时调用
@@ -22,6 +27,6 @@ App({
     console.log(error);
   },
   globalData: {
-    foo: 'bar'
+    host: 'http://hxj.vaiwan.com'
   }
 });

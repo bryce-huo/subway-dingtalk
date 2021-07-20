@@ -1,5 +1,6 @@
 @import './static/styles/main.acss';
 @import './static/styles/font.acss';
+@import "/template/globalLoading/index.acss";
 
 page {
   background-color: #F7F7F7;
@@ -8,6 +9,18 @@ page {
   font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
   font-size: 24rpx;
   flex: 1;
+}
+
+.global-loading {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background: url('/static/skeleton.jpg') no-repeat;
+  background-size: contain;
 }
 
 .page-description {

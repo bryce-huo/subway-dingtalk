@@ -1,8 +1,12 @@
+@import "/aParse/aParse.acss";
+
+.article-richtext .a-view {
+  overflow: hidden;
+}
 .article-title {
   padding-top: 20rpx;
   padding-bottom: 10rpx;
-}
-.article-audio {
+  text-align: center;
 }
 .article-audio__image {
   position: relative;
@@ -35,7 +39,9 @@
   padding: 20rpx 0;
 }
 
-.article-richtext rich-text{
-  color: red;
+.article-banner image {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.2rem;
 }
 

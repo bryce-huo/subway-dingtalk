@@ -1,22 +1,22 @@
 <view class="main">
   <view class="page">
     <view class="page-section page-section-nomargin">
-      <view class="page-section-content">
-        <view a:if="{{ listData.length > 0 }}">
-          <navigator open-type="navigate" url="/pages/article/article" 
-            a:for="{{listData}}" a:for-item="product" a:for-index="index" a:key="index"
+      <view a:if="{{pageLoaded}}" class="page-section-content">
+        <view a:if="{{ allProducts.length > 0 }}">
+          <navigator open-type="navigate" url="/pages/article/article?id={{product.id}}" 
+            a:for="{{allProducts}}" a:for-item="product" a:for-index="index" a:key="index"
             >
             <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
                 <view class="gui-cate-pbody">
-                  <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                  <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.title}}</text>
                   <view class="gui-flex gui-columns gui-space-between">
-                    <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
-                    <text class="gui-product-other gui-color-gray">371人已读</text>
+                    <text class="gui-product-description gui-color-gray">{{product.excerpt}}</text>
+                    <text class="gui-product-other gui-color-gray">{{product.clicks}}人已读</text>
                   </view>
                 </view>
                 <view class="gui-cate-pimg">
                   <image class="image"
-                    mode="aspectFill" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                    mode="aspectFill" src="{{product.image}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
                 </view>
             </view>
           </navigator>
@@ -32,7 +32,7 @@
         </view>
       </view>
       <!-- 加载更多 -->
-      <view class="gui-page-loadmore" style="{{showLoadMore? '' : 'display:none;'}}">
+      <view a:if="{{loading}}" class="gui-page-loadmore" style="{{showLoadMore? '' : 'display:none;'}}">
        <view class="gui-page-loadmore">
           <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
             <view class="gui-load-more-icon">

@@ -17,11 +17,11 @@
     <!-- 左侧分类列表 -->
     <scroll-view scroll-y="{{true}}" show-scrollbar="{{false}}" 
     scroll-with-animation="{{true}}" class="gui-cate-left" style="height:{{mainHeight}}px;">
-      <view class="gui-cate-left-item gui-border-box {{currentCateIndex == item.cateid ? 'gui-cate-left-current' : ''}}" 
+      <view class="gui-cate-left-item gui-border-box {{currentCateIndex == item.id ? 'gui-cate-left-current' : ''}}" 
       a:for="{{mainCate}}" a:for-item="item" a:for-index="index" a:key="index">
-        <text class="gui-border-l gui-cate-left-item-title gui-block-text {{currentCateIndex == item.cateid ? 'gui-cate-left-current' : ''}}" 
-        data-cateid="{{item.cateid}}" onTap='changCate' 
-        id="cate{{item.cateid}}">{{item.name}}</text>
+        <text class="gui-border-l gui-cate-left-item-title gui-block-text {{currentCateIndex == item.id ? 'gui-cate-left-current' : ''}}" 
+        data-cateid="{{item.id}}" onTap='changCate' 
+        id="cate{{item.id}}">{{item.name}}</text>
       </view>
     </scroll-view>
     <!-- 右侧列表 -->
@@ -34,16 +34,16 @@
         <view class="gui-margin-top" id="productList">
           <view a:if="{{ products.length > 0 }}">
             <!-- 循环展示产品 -->
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest" hover-class="navigator-hover" 
+            <navigator open-type="navigate" url="/pages/articleTest/articleTest?id={{product.id}}" hover-class="navigator-hover" 
               a:for="{{products}}" a:for-item="product" a:for-index="index" a:key="index"
               >
               <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list" >
                 <view class="gui-cate-pbody">
-                  <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                  <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.title}}</text>
                   <view class="gui-flex gui-columns gui-space-between">
-                    <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
+                    <text class="gui-product-description gui-color-gray">{{product.excerpt}}</text>
                     <text class="gui-product-other gui-color-gray">
-                      <text class="iconfont icon-video" style="font-size:25rpx;margin-right:8rpx"></text>371人已测
+                      <text class="iconfont icon-video" style="font-size:25rpx;margin-right:8rpx"></text>{{product.clicks}}人已测
                     </text>
                   </view>
                 </view>
@@ -62,6 +62,17 @@
               </view>
               <text slot="text" 
                 class="gui-text-small gui-block-text gui-text-center gui-margin-top" style="color:#9DABFF;">暂无数据 ......</text>
+            </view>
+          </view>
+          <!-- 加载更多 -->
+          <view a:if="{{loading}}" class="gui-page-loadmore">
+            <view class="gui-page-loadmore">
+              <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
+                <view class="gui-load-more-icon">
+                  <text class="iconfont icon-loading gui-rotate360 gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);"></text>
+                </view>
+                <text class="gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);">更多数据加载中</text>
+              </view>
             </view>
           </view>
         </view>

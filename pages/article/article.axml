@@ -1,17 +1,19 @@
+<import src="/aParse/aParse.axml"/>
+
 <view class="main" style="background:#fff;">
   <!-- 文章标题 -->
   <view class="gui-padding">
-    <text class="gui-h4 gui-block-text article-title">多和朋友聊天不能治抑郁</text>
-    <text class="gui-product-other gui-block-text gui-color-gray">
+    <text class="gui-h4 gui-block-text article-title">{{product.title}}</text>
+    <text a:if="{{product.clicks > 0}}" class="gui-product-other gui-block-text gui-color-gray">
       <text class="iconfont icon-laba" style="font-size:25rpx;margin-right:8rpx"></text>
-        213123已听
+        {{product.clicks}}人浏览
     </text>
   </view>
   <!-- 文章内容 -->
   <view>
     <view class="gui-editor-show gui-border-box" style="padding: 30rpx">
       <!-- 音频 -->
-      <view class="article-audio">
+      <!-- <view class="article-audio">
         <text class="gui-block-text gui-text-center gui-color-red">===音频===</text>
         <view class="article-audio__image">
           <image a:if="{{audioInit}}" class="image" style="width:100%;height:350rpx"
@@ -29,12 +31,18 @@
         <view class="article-audio-descrition">
           如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了...
         </view>
+      </view> -->
+
+      <!-- Banner -->
+      <view class="article-banner">
+        <image a:if="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image)}}" src="{{product.image}}"></image>
       </view>
+
       <!-- 富文本 -->
       <view class="article-richtext">
-        <text class="gui-block-text gui-text-center gui-color-red">===富文本===</text>
-        <rich-text nodes="{{nodes}}">
-        </rich-text>
+        <!-- <rich-text nodes="{{AParse}}">
+        </rich-text> -->
+        <template is="aParse" data="{{aParseData:article.nodes}}"/>
       </view>
     </view>  
   </view>

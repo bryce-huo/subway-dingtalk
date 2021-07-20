@@ -1,0 +1,3 @@
+<web-view id="web-view-1" 
+  src="http://duice.net.cn/login/index?id=8e296a067a37563370ded05f5a3bf3ec" onMessage="test">
+</web-view>

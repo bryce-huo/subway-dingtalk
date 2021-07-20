@@ -1,25 +1,22 @@
-// var graceJS = require('/GraceUI5/js/grace.js');
+var array = require('lodash/array')
 
 Page({
   data: {
     // 核心区域高度
     mainHeight: 300,
     // 当前分类
-		currentCateIndex: 0,
-    mainCate: [
-      { cateid: 0, name: '全部'},
-      { cateid: 1, name: '心理健康'},
-      { cateid: 2, name: '婚恋家庭'},
-      { cateid: 3, name: '青少年问题'},
-      { cateid: 4, name: '儿童心理'},
-      { cateid: 5, name: '个性气质'},
-      { cateid: 6, name: '人力资源'},
-      { cateid: 7, name: '职场情商'},
-      { cateid: 21, name: '专业测评'}
-    ],
-    products:[]
+    currentCateIndex: 14,
+    currentPage: 1,
+    currentTotalPage: 0,
+    mainCate: [],
+    products: [],
+    loading: false,
+    searchWords: ""
   },
   onReady() {
+    dd.showLoading({
+      content: '加载中...',
+    });
     dd.createSelectorQuery()
       .select('.header-search').boundingClientRect()
       .select('page').selectViewport().boundingClientRect().exec((ret) => {
@@ -30,72 +27,108 @@ Page({
     });
   },
   onLoad() {
+    // 获取分类
+    this.getCate();
+    // 默认获取全部数据
     this.getData();
   },
-  getData() {
-    var testData = [
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:1,name:"你的一生会遇到几段恋爱？",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc:'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'},
-      { id:2,name:"你的婚姻生活为什么总是不美满",img:'https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/28.png', desc: 'DingTalk OpenAPI新增通讯录相关接口，你可通过这些接口查询企业邀请信息和最新钉钉指数信息。'}
-    ]
-    dd.showLoading({
-      content: '加载中...',
+  getCate() {
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/psys/category',
+      method: 'GET',
+      data: {
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          self.setData({
+            mainCate: array.concat({id:14, name: "全部", order: 1}, res.data.data)
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+      }
     });
-    // 模拟api加载数据
-		setTimeout(()=>{
-      this.setData({
-        products: testData
-      });
-      dd.hideLoading();
-    }, 1000)
+  },
+  getData(keyword, page) {
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/psys',
+      method: 'GET',
+      data: {
+        keyword: self.data.searchWords,
+        page: page ? page : 1,
+        limit: 10,
+        category_id: self.data.currentCateIndex
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          var oldData = self.data.products;
+          self.setData({
+            products: array.concat(oldData, res.data.data),
+            currentPage: res.data.meta.current_page,
+            currentTotalPage: res.data.meta.last_page
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        dd.hideLoading();
+        self.setData({
+          loading: false
+        })
+      }
+    });
   },
   onScrollToLower() {
-    dd.showLoading({
-      content: '加载更多...',
-    });
-    setTimeout(() => {
-        dd.hideLoading();
-    }, 3000)
+    if(this.data.currentPage < this.data.currentTotalPage){
+      this.setData({
+        loading: true
+      })
+      this.getData(null, this.data.currentPage+1);
+    }else {
+      console.log("没有更多数据了...")
+    }
   },
   changCate(e) {
     var cateid = e.currentTarget.dataset.cateid;
     this.setData({
-      currentCateIndex: cateid
+      currentCateIndex: cateid,
+      products: []
+    });
+    dd.showLoading({
+      content: '数据加载中...',
     });
     this.getData();
   },
   handleSearch(e) {
     console.log('search', e.detail.value);
     this.setData({
-      search: e.detail.value,
+      searchWords: e.detail.value,
     });
   },
   doneSearch() {
-    console.log('doneSearch', this.data.search);
+    console.log('doneSearch', this.data.searchWords);
+    this.setData({
+      products: []
+    });
+    dd.showLoading({
+      content: '数据加载中...',
+    });
+    this.getData(this.data.searchWords, this.data.currentPage);
     my.hideKeyboard();
   },
   clearSearch() {
     console.log('clear search', this.data.search);
     this.setData({
-      search: '',
+      searchWords: '',
     });
   },
 });

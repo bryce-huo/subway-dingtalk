@@ -1,4 +1,4 @@
-var parserHtml = require("/static/parserHTML.js");
+var AParse = require('/aParse/aParse.js')
 
 Page({
   data: {
@@ -9,21 +9,74 @@ Page({
 
     audioInit: false,
     audioPlay: false,
-    nodes: null,
-  },
-  onLoad() {
-    let manager = dd.getBackgroundAudioManager()
-    let events = ["onPlay", "onPause", "onStop", "onEnded", "onTimeUpdate", "onError", "onWaiting"]
-    events.forEach(item => {
-      manager[item] = function (event) {
-        //console.log('EVENT:', item, event)
-      }
-    })
+    AParse:AParse,
 
-    // 加载富文本内容
-    this.setData({
-      nodes: parserHtml.parserHTML('<p align="center" style="text-align:center; margin:0pt 0pt 0.0001pt"><span style="font-family:SimHei;"><span style="font-size:28px;"><span style="background:#ffffff"><span style="vertical-align:baseline"><span style="line-height:24.0000pt"><b><span style="color:#323232"><span style="font-weight:bold">释放“快乐激素”，让你拥有好心情</span></span></b></span></span></span></span></span></p><p align="justify" class="p" style="margin-top:0.0000pt; margin-bottom:0.0000pt; text-align:justify"><span style="font-family:SimSun;"><span style="font-size:18px;"><span style="background:#ffffff"><span style="vertical-align:baseline"><span style="color:#323232">&nbsp; &nbsp; 现代社会，学习压力、工作压力、生活压力都很大，使得很多人常常处于烦躁、焦虑、苦闷、不开心等情绪中，甚至患上了抑郁症！</span></span></span></span></span></p><p align="center" style="text-align:center; margin:0pt 0pt 0.0001pt"><span style="font-size:18px;"><img border="0" src="http://eap.xa-metro.com:55558/static/upload/202011/647097808abe520b.png" style="max-width:500px" title="image"></span></p>')
-    })
+    product: null,
+  },
+  onLoad(query) {
+    dd.showLoading({
+      content: '加载中...',
+    });
+    var self = this;
+    var app = getApp();
+
+    // 普通文章
+    if(query.id) {
+      dd.httpRequest({
+        url: app.globalData.host + '/api/courses/'+query.id,
+        method: 'GET',
+        data: {
+        },
+        dataType: 'json',
+        success: function(res) {
+          if(res.data.status_code === 200) {
+            self.setData({
+              product: res.data.data,
+            });
+            AParse.aParse('article', 'html', res.data.data.body, self, 0)
+          }
+        },
+        fail: function(res) {
+        },
+        complete: function(res) {
+          self.setData({
+            globalLoading: false
+          })
+          dd.hideLoading();
+        }
+      });
+    }
+    // 单页
+    if(query.page) {
+      dd.httpRequest({
+        url: app.globalData.host + '/api/page/'+query.page,
+        method: 'GET',
+        data: {
+        },
+        dataType: 'json',
+        success: function(res) {
+          if(res.data.status_code === 200) {
+            self.setData({
+              product: res.data.data,
+            });
+            AParse.aParse('article', 'html', res.data.data.body, self, 0)
+          }
+        },
+        fail: function(res) {
+        },
+        complete: function(res) {
+          dd.hideLoading();
+        }
+      });
+    }
+    
+    // let manager = dd.getBackgroundAudioManager()
+    // let events = ["onPlay", "onPause", "onStop", "onEnded", "onTimeUpdate", "onError", "onWaiting"]
+    // events.forEach(item => {
+    //   manager[item] = function (event) {
+    //     //console.log('EVENT:', item, event)
+    //   }
+    // })
   },
   start() {
     // let manager = dd.getBackgroundAudioManager()

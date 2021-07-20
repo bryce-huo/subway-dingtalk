@@ -1,10 +1,12 @@
+<import src="/template/globalLoading/index.axml"/>
 <view class="main">
+  <template a:if="{{globalLoading}}" is="globalLoading" data="{{type:'home'}}"/>
   <view class="home-banner">
     <swiper class="demo-swiper" style="height:200px;" indicator-dots="{{true}}" autoplay="{{false}}" vertical="{{false}}" interval="{{1000}}" circular="{{false}}">
       <block a:for="{{swiperList}}" a:for-item="item" a:for-index="idx" a:key="idx">
         <swiper-item>
           <view class="swiper-item">
-            <image src="https://cmsuse.oss-cn-beijing.aliyuncs.com/g5/1.png"></image>
+            <image src="{{item.image.replace(/\\/g, '/')}}"></image>
           </view>
         </swiper-item>
       </block>
@@ -14,19 +16,19 @@
     <!-- 快捷导航 -->
     <view class="page-section" style="padding: 0.3rem 0;">
       <view class="page-section-content category__wrap">
-        <navigator class="category__item" open-type="navigate" url="/pages/article/article">
+        <navigator class="category__item" open-type="navigate" url="/pages/article/article?page=eap">
           <view class="category__img">
             <image src="/static/category_imgs/cate_eap.png"></image>
           </view>
           <view class="category__title">EAP介绍</view>
         </navigator>
-        <navigator class="category__item" open-type="navigate" url="/pages/list/list">
+        <navigator class="category__item" open-type="navigate" url="/pages/list/list?id=1">
           <view class="category__img">
             <image src="/static/category_imgs/cate_yugao.png"></image>
           </view>
           <view class="category__title">活动预告</view>
         </navigator>
-        <navigator class="category__item" open-type="navigate" url="/pages/list/list">
+        <navigator class="category__item" open-type="navigate" url="/pages/list/list?id=2">
           <view class="category__img">
             <image src="/static/category_imgs/cate_huigu.png"></image>
           </view>
@@ -38,11 +40,11 @@
           </view>
           <view class="category__title">微课堂</view>
         </navigator>
-        <navigator class="category__item" open-type="navigate" url="/pages/psychologicalTest/psychologicalTest">
+        <navigator class="category__item" open-type="navigate" url="/pages/psychologicalTestProfession/psychologicalTestProfession">
           <view class="category__img">
             <image src="/static/category_imgs/cate_ceping.png"></image>
           </view>
-          <view class="category__title">心理测评</view>
+          <view class="category__title">专业测评</view>
         </navigator>
         <navigator class="category__item" open-type="navigate" url="/pages/reservation/reservation">
           <view class="category__img">
@@ -69,34 +71,11 @@
       <view class="page-section-title gui-h5"><text style="color:#3688ff;">经典</text>心理测评</view>
       <view class="page-section-content scroll-view-style1">
         <scroll-view class="gui-flex gui-rows gui-nowrap" scroll-x="{{true}}" style="width: 100%" >
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/articleTest/articleTest">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
+          <view class="scroll-view-item" 
+            a:for="{{psyFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
+            <navigator open-type="navigate" url="/pages/articleTest/articleTest?id={{item.id}}">
+              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image_01) ? item.image_01 : '/static/placeholder.png'}}"></image>
+              <text class="scroll-view-item__text gui-text-small">{{item.title}}</text>
             </navigator>
           </view>
         </scroll-view>
@@ -107,34 +86,11 @@
       <view class="page-section-title gui-h5"><text style="color:#ed6a0c;">热门</text>微课</view>
       <view class="page-section-content scroll-view-style1">
         <scroll-view class="gui-flex gui-rows gui-nowrap" scroll-x="{{true}}" style="width: 100%" >
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/article/article">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/article/article">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/article/article">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/article/article">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
-            </navigator>
-          </view>
-          <view class="scroll-view-item">
-            <navigator open-type="navigate" url="/pages/article/article">
-              <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png"></image>
-              <text class="scroll-view-item__text gui-text-small">心理健康测评表</text>
+          <view class="scroll-view-item" 
+            a:for="{{courseFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
+            <navigator open-type="navigate" url="/pages/article/article?{{item.id}}">
+              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image) ? item.image : '/static/placeholder.png'}}"></image>
+              <text class="scroll-view-item__text gui-text-small">{{item.title}}</text>
             </navigator>
           </view>
         </scroll-view>
@@ -144,26 +100,26 @@
     <view class="page-section page-section-nomargin">
       <view class="page-section-title gui-h5"><text style="color:#1aa533;">全部</text>微课</view>
       <view class="page-section-content">
-        <navigator open-type="navigate" url="/pages/article/article" 
+        <navigator open-type="navigate" url="/pages/article/article?id={{product.id}}" 
           a:for="{{homeAllProducts}}" a:for-item="product" a:for-index="index" a:key="index"
           >
           <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
               <view class="gui-cate-pbody">
-                <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.name}}</text>
+                <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{product.title}}</text>
                 <view class="gui-flex gui-columns gui-space-between">
-                  <text class="gui-product-description gui-color-gray">{{product.desc}}</text>
-                  <text class="gui-product-other gui-color-gray"><text class="iconfont icon-laba" style="font-size:25rpx;margin-right:8rpx"></text>371人已测</text>
+                  <text class="gui-product-description gui-color-gray">{{product.excerpt}}</text>
+                  <text class="gui-product-other gui-color-gray"><text class="iconfont icon-laba" style="font-size:25rpx;margin-right:8rpx"></text>{{product.clicks}}人已读</text>
                 </view>
               </view>
               <view class="gui-cate-pimg">
                 <image class="image"
-                  mode="aspectFill" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                  mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image) ? product.image : '/static/placeholder.png'}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
               </view>
           </view>
         </navigator>
       </view>
       <!-- 加载更多 -->
-      <view class="gui-page-loadmore">
+      <view a:if="{{loading}}" class="gui-page-loadmore">
        <view class="gui-page-loadmore">
           <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
             <view class="gui-load-more-icon">

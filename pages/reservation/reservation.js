@@ -1,32 +1,85 @@
+var array = require('lodash/array');
+
 Page({
   data: {
-    allTeacher: []
+    allTeachers: [],
+    currentPage: 1,
+    currentTotalPage: 0,
+    loading: false,
+    pageLoaded: false,
+
+    teacherFeatured: [], // 推荐咨询师
   },
   onLoad() {
-    this.getData();
-  },
-  getData() {
-    var testData = [
-      { id:1,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:2,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:3,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:4,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:5,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:6,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:7,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:8,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:9,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-      { id:10,name:"董薇",img:'http://m.xinrunjiamei.com/uploads/20210620/09e9727ebb0fdd8cfd0feadf9d5799da.jpg', desc:'实战派心理专家；中科院心理研究所心理咨询与治疗专业；背景师范大学心理热门'},
-    ]
     dd.showLoading({
       content: '加载中...',
     });
-    // 模拟api加载数据
-		setTimeout(()=>{
+    var self = this;
+    var app = getApp();
+    // 推荐咨询师
+    dd.httpRequest({
+      url: app.globalData.host + '/api/counsellors',
+      method: 'GET',
+      data: {
+        page: 1,
+        limit: 20,
+        featured: 1,
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          self.setData({
+            teacherFeatured: res.data.data,
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        self.getData();
+      }
+    });
+  },
+  onReachBottom() {
+    if(this.data.currentPage < this.data.currentTotalPage){
       this.setData({
-        allTeacher: testData
-      });
-      dd.hideLoading();
-    }, 1000)
+        loading: true
+      })
+      this.getData(this.data.currentPage+1);
+    }else {
+      console.log("没有更多数据了...")
+    }
+  },
+  getData(page) {
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/counsellors',
+      method: 'GET',
+      data: {
+        page: page ? page : 1,
+        limit: 10,
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          var oldData = self.data.allTeachers;
+          self.setData({
+            allTeachers: array.concat(oldData, res.data.data),
+            currentPage: res.data.meta.current_page,
+            currentTotalPage: res.data.meta.last_page
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        self.setData({
+          loading: false,
+          pageLoaded: true
+        });
+        dd.hideLoading();
+      }
+    });
   }
 });

@@ -16,7 +16,8 @@
     "pages/accountContact/accountContact",
     "pages/accountYuyue/accountYuyue",
     "pages/accountWishlist/accountWishlist",
-    "pages/accountResult/accountResult"
+    "pages/accountResult/accountResult",
+    "pages/psychologicalTestProfession/psychologicalTestProfession"
   ],
   "window": {
     "defaultTitle": "欣晴e站心理咨询",
@@ -36,7 +37,7 @@
       },
       {
         "pagePath": "pages/psychologicalTest/psychologicalTest",
-        "name": "心理测评",
+        "name": "趣味测评",
         "icon": "static/menu_imgs/menu_2.png",
         "activeIcon": "static/menu_imgs/menu_2a.png"
       },

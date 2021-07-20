@@ -1,9 +1,21 @@
+var array = require('lodash/array');
+
 Page({
   data: {
-    listData: [],
-    showLoadMore: false
+    cateid: null,
+    allProducts: [],
+    currentPage: 1,
+    currentTotalPage: 0,
+    pageLoaded: false,
+    loading: true,
   },
-  onLoad() {
+  onLoad(query) {
+    dd.showLoading({
+      content: '加载中...',
+    });
+    this.setData({
+      cateid: query.id
+    })
     this.getData();
   },
   onReachBottom() {
@@ -13,34 +25,54 @@ Page({
     });
     this.getData();
   },
-  getData() {
-    var testData = [
-      { id:1,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:2,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:3,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:4,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:5,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:6,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:7,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:8,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:9,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:10,name:"普通列表页",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-    ];
-    dd.showLoading({
-      content: '加载中...',
+  getData(page) {
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/courses',
+      method: 'GET',
+      data: {
+        page: page ? page : 1,
+        limit: 10,
+        category_id: self.data.cateid
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          var oldData = self.data.allProducts;
+          self.setData({
+            allProducts: array.concat(oldData, res.data.data),
+            currentPage: res.data.meta.current_page,
+            currentTotalPage: res.data.meta.last_page
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        self.setData({
+          loading: false,
+          pageLoaded: true,
+        });
+        dd.hideLoading()
+      }
     });
+
+    // dd.showLoading({
+    //   content: '加载中...',
+    // });
     // 模拟api加载数据
-		setTimeout(()=>{
-      this.setData({
-        listData: testData,
-        showLoadMore: false
-      });
-      // 设置导航标题
-      dd.setNavigationBar({
-        title: '列表页标题'
-      });
-      dd.hideLoading();
-    }, 1000)
+		// setTimeout(()=>{
+    //   this.setData({
+    //     listData: testData,
+    //     showLoadMore: false
+    //   });
+    //   // 设置导航标题
+    //   dd.setNavigationBar({
+    //     title: '列表页标题'
+    //   });
+    //   dd.hideLoading();
+    // }, 1000)
   }
 });
 

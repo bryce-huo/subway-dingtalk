@@ -1,4 +1,5 @@
-<view class="main">
+<import src="/aParse/aParse.axml"/>
+<view a:if="{{pageLoaded}}" class="main">
   <swiper class="demo-swiper" style="height:200px;" indicator-dots="{{true}}" autoplay="{{false}}" vertical="{{false}}" interval="{{1000}}" circular="{{false}}">
     <block a:for="{{swiperList}}" a:for-item="item" a:for-index="idx" a:key="idx">
       <swiper-item>
@@ -10,9 +11,9 @@
   </swiper>
   <view class="teacher__info-wrap">
     <view class="teacher__info">
-      <view class="teacher__info-name">区文俊</view>
+      <view class="teacher__info-name">{{ product.name }}</view>
       <view class="teacher__intro" style="height:{{moreExpand? 'auto':'1.6rem'}};">
-        <rich-text nodes="{{nodes}}"></rich-text>
+        <template is="aParse" data="{{aParseData:article.nodes}}"/>
       </view>
       <view class="teacher__more" onTap="showMore">
         <text a:if="{{moreExpand}}">收起</text>
@@ -24,14 +25,8 @@
         <text class="gui-block-text">擅长领域</text>
       </view>
       <view class="specialty_box">
-        <view class="specialty_box-item">儿童问题</view>
-        <view class="specialty_box-item">恋爱婚姻</view>
-        <view class="specialty_box-item">家庭关系</view>
-        <view class="specialty_box-item">情绪问题</view>
-        <view class="specialty_box-item">情绪问题</view>
-        <view class="specialty_box-item">情绪问题</view>
-        <view class="specialty_box-item">情绪问题</view>
-        <view class="specialty_box-item">情绪问题</view>
+        <view a:for="{{product.tags.split('|')}}" a:for-item="item" a:for-index="idx" a:key="idx"
+          class="specialty_box-item">{{ item }}</view>
       </view>
     </view>
     <view class="experience">
@@ -41,9 +36,9 @@
       <view class="experience_box">
         <view class="experience_box_left">
           <view class="experience_box_image1"></view>
-          <text>从业4年</text>
+          <text>从业{{ product.exp_year }}年</text>
           <view class="experience_box_image2"></view>
-          <text>咨询时长800+</text>
+          <text>咨询时长{{ product.exp_time }}+</text>
         </view>
       </view>
     </view>

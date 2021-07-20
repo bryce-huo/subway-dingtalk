@@ -1,62 +1,89 @@
+var array = require('lodash/array');
+
 Page({
   data: {
-    swiperList: ['blue', 'red', 'yellow'],
-    homeAllProducts: []
+    globalLoading: true,
+    swiperList: [],
+    homeAllProducts: [],
+    currentPage: 1,
+    currentTotalPage: 0,
+    loading: false,
+
+    courseFeatured: [], // 推荐课程
+    psyFeatured: [], // 推荐测试
   },
   onLoad() {
-    // dd.httpRequest({
-    //   url: 'http://dw-psy.vaiwan.com/api/home',
-    //   method: 'GET',
-    //   data: {
-    //     from: '钉钉',
-    //     production: 'DingTalk',
-    //   },
-    //   dataType: 'json',
-    //   success: function(res) {
-    //     dd.alert({content: 'Request success'});
-    //   },
-    //   fail: function(res) {
-    //     dd.alert({content: 'Request fail'});
-    //   },
-    //   complete: function(res) {
-    //     dd.alert({content: 'Request complete'});
-    //   }
-    // });
-
-    this.getData();
-  },
-  onReachBottom() {
-    // 页面滚动到最底部
-    // dd.showLoading({
-    //   content: '加载更多...',
-    // });
-    // setTimeout(() => {
-    //     dd.hideLoading();
-    // }, 1000)
-  },
-  getData() {
-    var testData = [
-      { id:1,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:2,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:3,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:4,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:5,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:6,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:7,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:8,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:9,name:"抑郁无法绑架我",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-      { id:10,name:"抑郁无法绑架我1",img:'http://m.xinrunjiamei.com/uploads/20190217/9125de12d7bfd392d287e4682a12b73b.png', desc:'需要指出的是，抑郁情绪是一种普遍存在的情绪，每个人在一生的过程里，都会多次体验到抑郁情绪，它不等同于抑郁症。'},
-    ]
     dd.showLoading({
       content: '加载中...',
     });
-    // 模拟api加载数据
-		setTimeout(()=>{
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/home',
+      method: 'GET',
+      data: {
+      },
+      dataType: 'json',
+      success: function(res) {
+        console.log(res)
+        if(res.status === 200) {
+          console.log(res.data.banner)
+          self.setData({
+            swiperList: res.data.banner,
+            courseFeatured: res.data.course_featured,
+            psyFeatured: res.data.psy_featured,
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        self.getData();
+      }
+    });
+  },
+  onReachBottom() {
+    if(this.data.currentPage < this.data.currentTotalPage){
       this.setData({
-        homeAllProducts: testData
-      });
-      dd.hideLoading();
-    }, 1000)
+        loading: true
+      })
+      this.getData(this.data.currentPage+1);
+    }else {
+      console.log("没有更多数据了...")
+    }
+  },
+  getData(page) {
+    var self = this;
+    var app = getApp();
+    dd.httpRequest({
+      url: app.globalData.host + '/api/courses',
+      method: 'GET',
+      data: {
+        page: page ? page : 1,
+        limit: 10,
+        category_id: 3
+      },
+      dataType: 'json',
+      success: function(res) {
+        if(res.data.status_code === 200) {
+          var oldData = self.data.homeAllProducts;
+          self.setData({
+            homeAllProducts: array.concat(oldData, res.data.data),
+            currentPage: res.data.meta.current_page,
+            currentTotalPage: res.data.meta.last_page
+          })
+        }
+      },
+      fail: function(res) {
+      },
+      complete: function(res) {
+        dd.hideLoading();
+        self.setData({
+          loading: false,
+          globalLoading: false
+        })
+      }
+    });
   }
 });
 

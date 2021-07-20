@@ -40,9 +40,9 @@
       <view class="gui-form-item gui-border-b">
 				<text class="gui-form-label">咨询师</text>
 				<view class="gui-form-body">
-					<picker onChange="bindTeacherChange" range="{{teacherArray}}" value="{{teacherIndex}}">
+					<picker onChange="bindTeacherChange" range="{{teacherArray}}" value="{{teacherIndex}}" range-key="name">
 						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
-							<text class="gui-text gui-picker-placeholder">{{teacherArray[teacherIndex]}}</text>
+							<text class="gui-text gui-picker-placeholder">{{teacherArray[teacherIndex].name}}</text>
 							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
 						</view>
 					</picker>

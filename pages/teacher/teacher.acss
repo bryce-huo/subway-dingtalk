@@ -33,7 +33,6 @@
   flex-wrap: wrap;
 }
 .specialty_box-item {
-  width: 1.5rem;
   height: 0.45rem;
   background: #587ff6;
   border-radius: 0.6rem;
@@ -43,6 +42,7 @@
   text-align: center;
   line-height: 0.45rem;
   color: #ffffff;
+  padding: 0 0.3rem;
 }
 
 .teacher__more {
