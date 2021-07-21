@@ -17,7 +17,9 @@
     "pages/accountYuyue/accountYuyue",
     "pages/accountWishlist/accountWishlist",
     "pages/accountResult/accountResult",
-    "pages/psychologicalTestProfession/psychologicalTestProfession"
+    "pages/psychologicalTestProfession/psychologicalTestProfession",
+    "pages/order-test/order-test",
+    "pages/accountProfile/accountProfile"
   ],
   "window": {
     "defaultTitle": "欣晴e站心理咨询",

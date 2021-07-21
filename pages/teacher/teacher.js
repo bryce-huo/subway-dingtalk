@@ -41,6 +41,15 @@ Page({
             pageLoaded: true
           })
           dd.hideLoading();
+
+          // 统计点击
+          dd.httpRequest({
+            url: app.globalData.host + '/api/counsellors/'+query.id+'/click',
+            method: 'PUT',
+            dataType: 'json',
+            success: function(res) {
+            }
+          });
         }
       });
     }

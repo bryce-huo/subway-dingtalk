@@ -58,9 +58,6 @@ Page({
       score_choose: $score_choose,
     });
 
-    // console.log(this.data.option_choose);
-    // console.log(this.data.score_choose);
-
     // 为了有选中效果，加个延迟队列
     setTimeout(function() {
       if(self.data.subject_index < self.data.subjects.length) {

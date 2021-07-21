@@ -4,7 +4,7 @@ Page({
   data: {
     manager: null,
     title: 'abc',
-    src: 'https://demo.dj63.com//2016/CLUB%E5%95%86%E4%B8%9A/club%E4%B8%AD%E6%96%87/20140101/%E5%88%98%E6%83%9C%E5%90%9B_%E6%88%91%E5%8F%AA%E5%9C%A8%E4%B9%8E%E4%BD%A0_[_Sk_remix_Club_]2013.mp3',
+    src: '',
     coverImgUrl: 'https://img.alicdn.com/tps/TB1sXGYIFXXXXc5XpXXXXXXXXXX.jpg',
 
     audioInit: false,
@@ -33,7 +33,7 @@ Page({
             self.setData({
               product: res.data.data,
             });
-            AParse.aParse('article', 'html', res.data.data.body, self, 0)
+            AParse.aParse('article', 'html', res.data.data.body, self, 0);
           }
         },
         fail: function(res) {
@@ -43,6 +43,17 @@ Page({
             globalLoading: false
           })
           dd.hideLoading();
+          
+          // 统计点击
+          dd.httpRequest({
+            url: app.globalData.host + '/api/courses/'+query.id+'/click',
+            method: 'PUT',
+            dataType: 'json',
+            success: function(res) {
+              if(res.data.status_code === 200) {
+              }
+            }
+          });
         }
       });
     }
@@ -78,18 +89,12 @@ Page({
     //   }
     // })
   },
-  start() {
-    // let manager = dd.getBackgroundAudioManager()
-    // manager.title = this.data.title
-    // manager.coverImgUrl = this.data.coverImgUrl
-    // manager.src = this.data.src
-  },
   initAudio() {
     console.log("开始播放")
     this.manager = dd.getBackgroundAudioManager()
-    this.manager.title = this.data.title
+    this.manager.title = this.data.product.audio[0].original_name;
     this.manager.coverImgUrl = this.data.coverImgUrl
-    this.manager.src = this.data.src
+    this.manager.src = this.data.product.audio[0].download_link_url;
     this.setData({
       audioInit: true,
       audioPlay: true,
@@ -111,17 +116,21 @@ Page({
   },
   onHide() {
     // 页面隐藏，关闭音频
-    this.manager.stop();
+    if(this.data.audioInit) {
+      this.manager.stop();
+    }
   },
   onUnload() {
     // 页面被关闭，关闭音频
-    this.manager.stop();
+    if(this.data.audioInit) {
+      this.manager.stop();
+    }
   },
   onShareAppMessage() {
     return {
-      title: '分享微课标题',
-      desc: '分享微课描述',
-      path: ''
+      title: this.data.product.title,
+      desc: this.data.product.excerpt,
+      path: '/pages/article/article?id='+this.data.product.id
     };
   },
 })

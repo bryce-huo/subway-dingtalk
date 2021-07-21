@@ -40,6 +40,12 @@
           </view>
           <view class="category__title">微课堂</view>
         </navigator>
+        <navigator class="category__item" open-type="navigate" url="/pages/order-test/order-test">
+          <view class="category__img">
+            <image src="/static/category_imgs/cate_yuyue.png"></image>
+          </view>
+          <view class="category__title">测评预约</view>
+        </navigator>
         <navigator class="category__item" open-type="navigate" url="/pages/psychologicalTestProfession/psychologicalTestProfession">
           <view class="category__img">
             <image src="/static/category_imgs/cate_ceping.png"></image>
@@ -51,12 +57,6 @@
             <image src="/static/category_imgs/cate_zixunshi.png"></image>
           </view>
           <view class="category__title">咨询师介绍</view>
-        </navigator>
-        <navigator class="category__item" open-type="navigate" url="/pages/order-personal/order-personal">
-          <view class="category__img">
-            <image src="/static/category_imgs/cate_yuyue.png"></image>
-          </view>
-          <view class="category__title">个人预约</view>
         </navigator>
         <navigator class="category__item" open-type="navigate" url="/pages/order-team/order-team">
           <view class="category__img">

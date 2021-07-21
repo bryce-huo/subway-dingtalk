@@ -25,9 +25,7 @@ Page({
       },
       dataType: 'json',
       success: function(res) {
-        console.log(res)
         if(res.status === 200) {
-          console.log(res.data.banner)
           self.setData({
             swiperList: res.data.banner,
             courseFeatured: res.data.course_featured,
@@ -41,6 +39,7 @@ Page({
         self.getData();
       }
     });
+
   },
   onReachBottom() {
     if(this.data.currentPage < this.data.currentTotalPage){
@@ -59,12 +58,14 @@ Page({
       url: app.globalData.host + '/api/courses',
       method: 'GET',
       data: {
+        keyword: '',
         page: page ? page : 1,
         limit: 10,
         category_id: 3
       },
       dataType: 'json',
       success: function(res) {
+        //console.log(res);
         if(res.data.status_code === 200) {
           var oldData = self.data.homeAllProducts;
           self.setData({

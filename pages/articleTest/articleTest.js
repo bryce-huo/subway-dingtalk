@@ -1,5 +1,6 @@
 Page({
   data: {
+    c: false,
     product: null
   },
   onLoad(query) {
@@ -8,7 +9,6 @@ Page({
     });
     var self = this;
     var app = getApp();
-    var url = "";
 
     // 普通文章
     dd.httpRequest({
@@ -31,6 +31,9 @@ Page({
       },
       complete: function(res) {
         dd.hideLoading();
+        self.setData({
+          pageLoaded: true
+        })
       }
     });
   },

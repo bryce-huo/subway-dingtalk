@@ -1,10 +1,10 @@
 <import src="/aParse/aParse.axml"/>
 <view a:if="{{pageLoaded}}" class="main">
   <swiper class="demo-swiper" style="height:200px;" indicator-dots="{{true}}" autoplay="{{false}}" vertical="{{false}}" interval="{{1000}}" circular="{{false}}">
-    <block a:for="{{swiperList}}" a:for-item="item" a:for-index="idx" a:key="idx">
+    <block a:for="{{product.images}}" a:for-item="item" a:for-index="idx" a:key="idx">
       <swiper-item>
         <view class="swiper-item">
-          <image mode="aspectFill" src="http://m.xinrunjiamei.com/uploads/20210620/5874d29078be5987660000fdf9b48caa.jpg"></image>
+          <image mode="aspectFill" src="{{item.replace(/\\/g, '/')}}"></image>
         </view>
       </swiper-item>
     </block>
@@ -44,6 +44,6 @@
     </view>
   </view>
   <view class="teacher__btns">
-    <button type="primary" onTap="beginOrder">预约咨询</button>
+    <button type="primary" hover-class="btn-hover" onTap="beginOrder">预约咨询</button>
   </view>
 </view>

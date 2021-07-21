@@ -5,9 +5,23 @@ Page({
     typeArray: ['请选择困扰类型'],
     teacherArray: [{id:0, name: "请选择咨询师"}],
     typeIndex: 0,
-    teacherIndex: 0
+    teacherIndex: 0,
+
+    userInfo: null,
+    queryId: null,
+    pageloaded: false,
   },
-  onLoad() {
+  onLoad(query) {
+    dd.showLoading({
+      content: '加载中...',
+    });
+
+    var app = getApp();
+
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      queryId: query.id ? query.id : null,
+    }) 
     this.getCate();
     this.getTeacher();
   },
@@ -49,6 +63,14 @@ Page({
       dataType: 'json',
       success: function(res) {
         if(res.data.status_code === 200) {
+          res.data.data.forEach((item, key) => {
+            if(item.id == self.data.queryId) {
+              self.setData({
+                teacherIndex: (key+1)
+              });
+              return false;
+            }
+          })
           self.setData({
             teacherArray: array.concat({id:0, name: "请选择咨询师"}, res.data.data)
           })
@@ -57,17 +79,21 @@ Page({
       fail: function(res) {
       },
       complete: function(res) {
+        dd.hideLoading();
+        self.setData({
+          pageloaded: true
+        })
       }
     });
   },
   bindTypeChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
       typeIndex: e.detail.value,
     });
   },
   bindTeacherChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
       teacherIndex: e.detail.value,
     });
@@ -115,6 +141,9 @@ Page({
             content: '预约成功！',
             duration: 3000,
             success: () => {
+              dd.navigateBack({
+                delta: 2
+              })
             },
           });
         }

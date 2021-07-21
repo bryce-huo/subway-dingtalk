@@ -1,0 +1,43 @@
+<view class="main">
+  <view class="gui-padding">
+    <form onSubmit="formSubmit">
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">姓名</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="name" value="{{userInfo.name}}" disabled placeholder="请输入姓名" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">电话</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="mobile" value="{{userInfo.mobile}}" disabled placeholder="请输入电话" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">工号</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="job_number" value="{{userInfo.job_number}}" disabled placeholder="请输入工号" />
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+				<text class="gui-form-label">文化程度</text>
+				<view class="gui-form-body">
+					<picker onChange="bindEducationChange" range="{{educationArray}}" value="{{educationIndex}}">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{educationArray[educationIndex]}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view style="height:80rpx;"></view>
+      <view class="order-btns">
+				<button form-type="submit" hover-class="btn-hover" type="primary">保存</button>
+			</view>
+			<view style="height:80rpx;"></view>
+    </form>
+  </view>
+</view>

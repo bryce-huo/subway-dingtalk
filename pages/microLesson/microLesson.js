@@ -131,4 +131,7 @@ Page({
       searchWords: '',
     });
   },
+  click() {
+    console.log(1212321);
+  }
 });

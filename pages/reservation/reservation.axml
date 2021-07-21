@@ -8,7 +8,7 @@
           <view class="scroll-view-item" 
             a:for="{{teacherFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
             <navigator open-type="navigate" url="/pages/teacher/teacher?id={{item.id}}">
-              <image mode="aspectFill" src="{{item.avatar}}"></image>
+              <image mode="aspectFill" src="{{item.avatar.replace(/\\/g, '/')}}"></image>
               <text class="gui-block-text scroll-view-item__text">{{item.name}}</text>
             </navigator>
           </view>
@@ -26,14 +26,14 @@
               <view class="gui-cate-pbody">
                 <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{item.name}}</text>
                 <view class="gui-flex gui-columns gui-space-between">
-                  <text class="gui-product-description gui-color-gray">{{item.intro}}</text>
+                  <text class="gui-product-description gui-color-gray">{{item.excerpt}}</text>
                   <text class="gui-product-other gui-color-gray">{{item.clicks}}人已咨询</text>
                 </view>
               </view>
               <view class="gui-cate-pimg">
                 <image class="image"
                   data-name="center"
-                  mode="aspectFill" src="{{item.avatar}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                  mode="aspectFill" src="{{item.avatar.replace(/\\/g, '/')}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
               </view>
           </view>
         </navigator>

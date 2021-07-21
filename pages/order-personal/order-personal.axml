@@ -1,5 +1,5 @@
 <view class="main">
-  <view class="gui-padding">
+  <view a:if="{{pageloaded}}" class="gui-padding">
     <form onSubmit="formSubmit">
       <view>
         <image mode="widthFix" class="yuyue-banner" mode="" src="/static/yuyue_banner.jpg"></image>
@@ -9,21 +9,21 @@
         <text class="gui-form-label">姓名</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="name" placeholder="请输入姓名" />
+            name="name" value="{{userInfo.name}}" disabled placeholder="请输入姓名" />
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
         <text class="gui-form-label">电话</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="tel" placeholder="请输入电话" />
+            name="tel" value="{{userInfo.mobile}}" disabled placeholder="请输入电话" />
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
         <text class="gui-form-label">工号</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="number" placeholder="请输入工号" />
+            name="number" value="{{userInfo.job_number}}" disabled placeholder="请输入工号" />
         </view>
       </view>
       <view class="gui-form-item gui-border-b">

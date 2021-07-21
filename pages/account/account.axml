@@ -1,13 +1,20 @@
-<view>
+<view a:if="{{pageLoaded}}">
   <view class="gui-flex gui-rows gui-nowrap account-top">
-    <image src="/static/user.jpg"></image>
+    <image src="{{ userInfo.avatar }}"></image>
     <view class="account-top__info">
-      <text class="gui-block-text">小丽</text>
+      <text class="gui-block-text">{{ userInfo.name }}</text>
       <text class="gui-block-text gui-color-gray">欢迎您，亲爱的客户</text>
     </view>
   </view>
   <view class="account-top__body">
     <view class="account-top__body-list">
+      <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/accountProfile/accountProfile">
+          <image class="colorfont" src="/static/color_fonts/yuyue.png"></image>
+          <text class="gui-block-text">个人信息</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view>
       <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountYuyue/accountYuyue">
           <image class="colorfont" src="/static/color_fonts/yuyue.png"></image>

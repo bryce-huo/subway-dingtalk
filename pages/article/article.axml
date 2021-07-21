@@ -13,11 +13,10 @@
   <view>
     <view class="gui-editor-show gui-border-box" style="padding: 30rpx">
       <!-- 音频 -->
-      <!-- <view class="article-audio">
-        <text class="gui-block-text gui-text-center gui-color-red">===音频===</text>
+      <view a:if="{{product.audio.length}}" class="article-audio">
         <view class="article-audio__image">
           <image a:if="{{audioInit}}" class="image" style="width:100%;height:350rpx"
-          mode="aspectFill" src="https://mms0.baidu.com/it/u=1251739379,3729068254&fm=27&gp=0.jpg"/>
+          mode="aspectFill" src="/static/music_bg.jpeg"/>
           <image a:else class="image" style="width:100%;height:350rpx"
           mode="aspectFill" src="https://via.placeholder.com/500x300.png?text=Cover"/>
           
@@ -28,10 +27,10 @@
           </view>
           <view a:else class="article-audio__btn article-audio__btn-init" onTap="initAudio"><text class="iconfont icon-erji"></text>点击收听</view>
         </view>
-        <view class="article-audio-descrition">
+        <!-- <view class="article-audio-descrition">
           如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了。如果跟朋友聊天可以治疗抑郁症，那我们这棒心理咨询师就可以去喝西北风了...
-        </view>
-      </view> -->
+        </view> -->
+      </view>
 
       <!-- Banner -->
       <view class="article-banner">
