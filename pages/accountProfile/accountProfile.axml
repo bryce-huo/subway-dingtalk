@@ -5,29 +5,87 @@
         <text class="gui-form-label">姓名</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="name" value="{{userInfo.name}}" disabled placeholder="请输入姓名" />
+            name="name" value="{{userInfo.name}}" disabled/>
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
         <text class="gui-form-label">电话</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="mobile" value="{{userInfo.mobile}}" disabled placeholder="请输入电话" />
+            name="mobile" value="{{userInfo.mobile}}" disabled/>
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
-        <text class="gui-form-label">工号</text>
+        <text class="gui-form-label">部门</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="job_number" value="{{userInfo.job_number}}" disabled placeholder="请输入工号" />
+            name="job_dept" value="{{userInfo.dept}}" disabled/>
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">职位</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="job_title" value="{{userInfo.job_title}}" disabled/>
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b">
+        <text class="gui-form-label">入职年限</text>
+        <view class="gui-form-body">
+          <input type="text" class="gui-form-input" 
+            name="employee_year" value="{{userInfo.employee_year}}" disabled/>
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b {{genderError? 'error' : ''}}">
+				<text class="gui-form-label">性别</text>
+				<view class="gui-form-body">
+					<picker name="gender" onChange="bindGenderChange" range="{{genderObj}}" value="{{genderObjIndex}}" range-key="name">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{genderObj[genderObjIndex].name}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view class="gui-form-item gui-border-b {{birthdayError? 'error' : ''}}">
+        <text class="gui-form-label">出生日期</text>
+        <view class="gui-form-body">
+          <view onTap="selectDate">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{birthday ? birthday : '请选择活动时间'}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</view>
+        </view>
+      </view>
+      <view class="gui-form-item gui-border-b {{degreeError? 'error' : ''}}">
 				<text class="gui-form-label">文化程度</text>
 				<view class="gui-form-body">
-					<picker onChange="bindEducationChange" range="{{educationArray}}" value="{{educationIndex}}">
+					<picker name="degree" onChange="bindEducationChange" range="{{educationObj}}" value="{{educationObjIndex}}" range-key="name">
 						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
-							<text class="gui-text gui-picker-placeholder">{{educationArray[educationIndex]}}</text>
+							<text class="gui-text gui-picker-placeholder">{{educationObj[educationObjIndex].name}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view class="gui-form-item gui-border-b {{maritalError? 'error' : ''}}">
+				<text class="gui-form-label">婚姻状况</text>
+				<view class="gui-form-body">
+					<picker name="marital_status" onChange="bindMaritalChange" range="{{maritalObj}}" value="{{maritalObjIndex}}" range-key="name">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{maritalObj[maritalObjIndex].name}}</text>
+							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
+						</view>
+					</picker>
+				</view>
+			</view>
+      <view class="gui-form-item gui-border-b {{livingError? 'error' : ''}}">
+				<text class="gui-form-label">居住情况</text>
+				<view class="gui-form-body">
+					<picker name="living_status" onChange="bindLivingChange" range="{{livingObj}}" value="{{livingObjIndex}}" range-key="name">
+						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
+							<text class="gui-text gui-picker-placeholder">{{livingObj[livingObjIndex].name}}</text>
 							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
 						</view>
 					</picker>

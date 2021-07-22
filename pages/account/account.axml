@@ -10,7 +10,7 @@
     <view class="account-top__body-list">
       <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountProfile/accountProfile">
-          <image class="colorfont" src="/static/color_fonts/yuyue.png"></image>
+          <image class="colorfont" src="/static/color_fonts/my.png"></image>
           <text class="gui-block-text">个人信息</text>
           <text class="iconfont icon-arrow-right"></text>
         </navigator>

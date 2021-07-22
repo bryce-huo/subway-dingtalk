@@ -1,15 +1,7 @@
 // import { assign } from 'lodash';
 // import assign from 'lodash/assign';
-
-// import { onAuthAppBack } from 'dingtalk-design-libs/biz/openAuthMiniApp';
-
 App({
   onLaunch (options) {
-    // 第一次打开时调用
-    // const { query, path } = options;
-    // const { corpId } = query;
-  },
-  onShow (options) {
     var self = this;
     var app = getApp();
 
@@ -26,6 +18,7 @@ App({
           dataType: 'json',
           success: function(res) {
             if(res.data.status_code === 200) {
+              console.log(res.data.data);
               self.globalData.userInfo = res.data.data;
             }
           },
@@ -37,6 +30,8 @@ App({
         });
       }
     });
+  },
+  onShow (options) {
   },
   onHide () {
     // 进入后台时调用

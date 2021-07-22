@@ -157,3 +157,7 @@ button {
   border-color: #eb3d45;
   background: #eb3d45;
 }
+
+.error {
+  border-color: red !important;
+}
