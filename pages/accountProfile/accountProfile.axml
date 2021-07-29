@@ -33,7 +33,7 @@
         <text class="gui-form-label">入职年限</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="employee_year" value="{{userInfo.employee_year}}" disabled/>
+            name="employee_year" value="{{employeeYear}}" disabled/>
         </view>
       </view>
       <view class="gui-form-item gui-border-b {{genderError? 'error' : ''}}">

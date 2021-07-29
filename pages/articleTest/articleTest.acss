@@ -86,6 +86,7 @@
   line-height: 1rem;  
 }
 .reviews {
+  margin: 0.3rem 0;
   padding: 0 0.3rem;
 }
 .reviews .gui-cate-pbody {

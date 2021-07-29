@@ -7,7 +7,7 @@ Page({
     currentPage: 1,
     currentTotalPage: 0,
     pageLoaded: false,
-    loading: true,
+    loading: false,
   },
   onLoad(query) {
     dd.showLoading({
@@ -19,11 +19,14 @@ Page({
     this.getData();
   },
   onReachBottom() {
-    // 页面滚动到最底部
-    this.setData({
-      showLoadMore: true
-    });
-    this.getData();
+    if(this.data.currentPage < this.data.currentTotalPage){
+      this.setData({
+        loading: true
+      })
+      this.getData(this.data.currentPage+1);
+    }else {
+      console.log("没有更多数据了...")
+    }
   },
   getData(page) {
     var self = this;
@@ -57,22 +60,6 @@ Page({
         dd.hideLoading()
       }
     });
-
-    // dd.showLoading({
-    //   content: '加载中...',
-    // });
-    // 模拟api加载数据
-		// setTimeout(()=>{
-    //   this.setData({
-    //     listData: testData,
-    //     showLoadMore: false
-    //   });
-    //   // 设置导航标题
-    //   dd.setNavigationBar({
-    //     title: '列表页标题'
-    //   });
-    //   dd.hideLoading();
-    // }, 1000)
   }
 });
 

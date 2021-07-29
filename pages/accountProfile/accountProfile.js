@@ -3,6 +3,7 @@ var array = require('lodash/array');
 Page({
   data: {
     userInfo: null,
+    employeeYear: 1,
 
     // 性别
     genderObj: [
@@ -65,6 +66,12 @@ Page({
 
     this.setData({
       userInfo: app.globalData.userInfo,
+      genderObjIndex: app.globalData.userInfo.gender,
+      educationObjIndex: app.globalData.userInfo.degree,
+      maritalObjIndex: app.globalData.userInfo.marital_status,
+      livingObjIndex: app.globalData.userInfo.living_status,
+      birthday: app.globalData.userInfo.birthday,
+      employeeYear: (new Date()).getFullYear()-parseInt((app.globalData.userInfo.join_date).split("-")[0])+1,
     }) 
   },
   bindGenderChange(e) {
@@ -160,7 +167,6 @@ Page({
       birthday: self.data.birthday
     })
 
-    //console.log(e.detail.value);
 
     dd.httpRequest({
       url: app.globalData.host + '/api/dingtalk/update_user',
@@ -170,16 +176,16 @@ Page({
       success: function(res) {
         console.log(res);
         if(res.data.status_code === 200) {
-          // dd.showToast({
-          //   type: 'success',
-          //   content: '预约成功！',
-          //   duration: 3000,
-          //   success: () => {
-          //     dd.navigateBack({
-          //       delta: 2
-          //     })
-          //   },
-          // });
+          dd.showToast({
+            type: 'success',
+            content: '修改成功！',
+            duration: 3000,
+            success: () => {
+              // dd.redirectTo({
+              //   url: '/pages/index/index'
+              // })
+            },
+          });
         }
       },
       fail: function(res) {

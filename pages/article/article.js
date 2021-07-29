@@ -81,24 +81,28 @@ Page({
       });
     }
     
-    // let manager = dd.getBackgroundAudioManager()
-    // let events = ["onPlay", "onPause", "onStop", "onEnded", "onTimeUpdate", "onError", "onWaiting"]
-    // events.forEach(item => {
-    //   manager[item] = function (event) {
-    //     //console.log('EVENT:', item, event)
-    //   }
-    // })
+    let manager = dd.getBackgroundAudioManager()
+    let events = ["onPlay", "onPause", "onStop", "onEnded", "onTimeUpdate", "onError", "onWaiting"]
+    events.forEach(item => {
+      manager[item] = function (event) {
+        //console.log('EVENT:', item, event)
+      }
+    })
   },
   initAudio() {
-    console.log("开始播放")
-    this.manager = dd.getBackgroundAudioManager()
-    this.manager.title = this.data.product.audio[0].original_name;
-    this.manager.coverImgUrl = this.data.coverImgUrl
-    this.manager.src = this.data.product.audio[0].download_link_url;
-    this.setData({
+    var self = this;
+    self.manager = dd.getBackgroundAudioManager();
+    self.manager.title = self.data.product.audio[0].original_name;
+    self.manager.coverImgUrl = self.data.coverImgUrl;
+    self.manager.src = (self.data.product.audio[0].download_link_url).replace(/\\/g, '/');
+    self.manager.titie = '';
+    self.manager.playbackRate = 1;
+    // self.manager.play();
+    // console.log(self.manager);
+    self.setData({
       audioInit: true,
       audioPlay: true,
-    })
+    })        
   },
   playToggle() {
     if(this.data.audioPlay) {

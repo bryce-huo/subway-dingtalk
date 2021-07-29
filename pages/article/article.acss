@@ -6,7 +6,7 @@
 .article-title {
   padding-top: 20rpx;
   padding-bottom: 10rpx;
-  text-align: center;
+  /* text-align: center; */
 }
 .article-audio {
   margin-bottom: 0.3rem;

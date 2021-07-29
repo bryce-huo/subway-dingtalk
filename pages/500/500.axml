@@ -1,0 +1,11 @@
+<view>
+  <view class="ant-result ant-result-500">
+    <view class="ant-result-icon ant-result-image">
+      <image mode="aspectFit" src="/static/500.png"></image>
+    </view>
+    <view class="ant-result-title">500</view>
+    <view class="ant-result-subtitle">
+      抱歉，出了一些问题。
+    </view>
+  </view>
+</view>

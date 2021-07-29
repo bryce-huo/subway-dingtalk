@@ -18,16 +18,38 @@ App({
           dataType: 'json',
           success: function(res) {
             if(res.data.status_code === 200) {
-              console.log(res.data.data);
-              self.globalData.userInfo = res.data.data;
+              var _data = res.data.data;
+              console.log(_data);
+              self.globalData.userInfo = _data;
+              // 如果字段不全，强制跳转至个人中心进行信息补全
+              if(!_data.birthday || !_data.degree || !_data.gender || !_data.living_status || !_data.marital_status) {
+                dd.alert({
+                  content: '信息不完整，请先补充个人基本信息',
+                  buttonText: '确定',
+                  success: () => {
+                    dd.redirectTo({
+                      url: '/pages/accountProfile/accountProfile'
+                    })
+                  },
+                });
+              }
             }
           },
           fail: function(res) {
+            dd.redirectTo({
+              url: '/pages/500/500'
+            })
           },
           complete: function(res) {
+            console.log(res)
             // dd.hideLoading();
           }
         });
+      },
+      fail:function(err){
+        dd.redirectTo({
+          url: '/pages/404/404'
+        })
       }
     });
   },
@@ -43,7 +65,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    //host: 'http://hxj.vaiwan.com',
+    // host: 'http://hxj.vaiwan.com',
     host: 'http://dw-psy.vaiwan.com',
   }
 });

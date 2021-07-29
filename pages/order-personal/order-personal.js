@@ -10,6 +10,8 @@ Page({
     userInfo: null,
     queryId: null,
     pageloaded: false,
+
+    submitLoading: false,
   },
   onLoad(query) {
     dd.showLoading({
@@ -122,10 +124,16 @@ Page({
     // 提交预约信息
     var self = this;
     var app = getApp();
+
+    self.setData({
+      submitLoading: true
+    });
+    
     dd.httpRequest({
       url: app.globalData.host + '/api/counsellors/'+teacherId+'/appointment',
       method: 'POST',
       data: {
+        dingtalk_userid: app.globalData.userInfo.dingtalk_userid,
         counsellor_id: teacherId,
         type: type,
         name: e.detail.value['name'],
@@ -151,6 +159,9 @@ Page({
       fail: function(res) {
       },
       complete: function(res) {
+        self.setData({
+          submitLoading: false
+        })
       }
     });
     // console.log(this.data.typeArray[this.data.typeIndex]);

@@ -1,10 +1,7 @@
 Page({
   data: {
-    themeArray: ['请选择主题', '主题1', '主题2', '主题3'],
+    themeArray: ['请选择主题', '团队凝聚力（内场）', '团队凝聚力（外场）', '压力管理', '曼陀罗绘画', '团体沙盘', '读书分享会', '电影赏析'],
     themeIndex: 0,
-
-    teacherArray: ['请选择咨询师', '董微', '董微2', '董微3'],
-    teacherIndex: 0,
 
     activity_date: null
   },

@@ -48,9 +48,9 @@
   padding: 0.3rem 0;
 }
 .choose-button button {
-  color: #0089ff;
-  background-color: transparent;
-  border-color: #0089ff;
+  color: #0089ff !important;
+  background-color: transparent !important;
+  border-color: #0089ff !important;
 }
 .people-wrapper {
   padding: 0.3rem 0;

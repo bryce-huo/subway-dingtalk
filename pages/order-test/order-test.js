@@ -6,6 +6,8 @@ Page({
 
     date_begin: null,
     date_end: null,
+
+    submitLoading: false,
   },
   onLoad() {
   },
@@ -42,7 +44,7 @@ Page({
       startWithDepartmentId: 0,
       success:function(res){
         self.setData({
-          users:res['users']
+          users: res['users']
         })
         /**
         {
@@ -58,38 +60,70 @@ Page({
   },
   formSubmit: function(e) {
     var result;
-    result = Object.assign(e.detail.value, {
-      date_begin: this.data.date_begin,
-      date_end: this.data.date_end,
-    })
-    console.log(result)
-    return false;
-    // if(type == '请选择困扰类型') {
-    //   dd.alert({
-    //     content: '请选择您的困扰类型',
-    //     buttonText: '确定',
-    //     success: () => {
-    //     },
-    //   });
-    //   return false;
-    // }
- 
-    // 提交预约信息
     var self = this;
     var app = getApp();
+    var users = ['031254064337914497'];
+
+    self.data.users.forEach(element => {
+      users.push(element.userId);
+    });
+
+    result = Object.assign(e.detail.value, {
+      start_time: this.data.date_begin,
+      end_time: this.data.date_end,
+      dingtalk_users: users.join(","),
+      dingtalk_userid: app.globalData.userInfo.dingtalk_userid,
+    })
+
+    // 校验
+    if(!this.data.date_begin) {
+      dd.alert({
+        content: '请选择测评开始时间',
+        buttonText: '确定',
+        success: () => {
+        },
+      });
+      return false;
+    }
+    if(!this.data.date_end) {
+      dd.alert({
+        content: '请选择测评结束时间',
+        buttonText: '确定',
+        success: () => {
+        },
+      });
+      return false;
+    }
+    if(e.detail.value.content == '') {
+      dd.alert({
+        content: '请输入测评内容',
+        buttonText: '确定',
+        success: () => {
+        },
+      });
+      return false;
+    }
+    if(users.length <= 0) {
+      dd.alert({
+        content: '请选择参加测评人员',
+        buttonText: '确定',
+        success: () => {
+        },
+      });
+      return false;
+    }
+ 
+    // 提交预约信息
+    this.setData({
+      submitLoading: true
+    })
+
     dd.httpRequest({
-      url: app.globalData.host + '/api/counsellors/'+teacherId+'/appointment',
+      url: app.globalData.host + '/api/me/duice',
       method: 'POST',
-      data: {
-        counsellor_id: teacherId,
-        type: type,
-        name: e.detail.value['name'],
-        mobile: e.detail.value['tel'],
-        work_number: e.detail.value['number']
-      },
+      data: result,
       dataType: 'json',
       success: function(res) {
-        // console.log(res);
         if(res.data.status_code === 200) {
           dd.showToast({
             type: 'success',
@@ -101,8 +135,17 @@ Page({
         }
       },
       fail: function(res) {
+        dd.alert({
+          content: res.data.message,
+          buttonText: '确定',
+          success: () => {
+          },
+        });
       },
       complete: function(res) {
+        self.setData({
+          submitLoading: false
+        })
       }
     });
   },

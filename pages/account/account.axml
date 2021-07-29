@@ -22,13 +22,13 @@
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
       </view>
-      <view class="account-top__list-item">
+      <!-- <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountWishlist/accountWishlist">
           <image class="colorfont" src="/static/color_fonts/weike.png"></image>
           <text class="gui-block-text">我的收藏</text>
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
-      </view>
+      </view> -->
       <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountResult/accountResult">
           <image class="colorfont" src="/static/color_fonts/jieguo.png"></image>

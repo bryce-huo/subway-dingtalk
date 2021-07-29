@@ -1,6 +1,6 @@
 Page({
   data: {
-    c: false,
+    pageLoaded: false,
     product: null
   },
   onLoad(query) {
@@ -45,9 +45,9 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '分享测评标题',
-      desc: '分享测评描述',
-      path: ''
+      title: this.data.product.title,
+      desc: this.data.product.excerpt,
+      path: '/pages/articleTest/articleTest?id='+this.data.product.id
     };
   },
 });

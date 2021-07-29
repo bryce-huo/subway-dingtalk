@@ -50,7 +50,7 @@
 			</view>
       <view style="height:80rpx;"></view>
       <view class="order-btns">
-				<button form-type="submit" hover-class="btn-hover" type="primary">确认预约</button>
+				<button form-type="submit" loading="{{submitLoading}}" disabled="{{submitLoading}}" hover-class="btn-hover" type="primary">确认预约</button>
 			</view>
 			<view style="height:80rpx;"></view>
     </form>

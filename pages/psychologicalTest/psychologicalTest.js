@@ -29,8 +29,6 @@ Page({
   onLoad() {
     // 获取分类
     this.getCate();
-    // 默认获取全部数据
-    this.getData();
   },
   getCate() {
     var self = this;
@@ -51,6 +49,8 @@ Page({
       fail: function(res) {
       },
       complete: function(res) {
+        // 默认获取全部数据
+        self.getData();
       }
     });
   },

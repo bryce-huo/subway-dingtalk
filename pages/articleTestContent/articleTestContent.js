@@ -1,5 +1,6 @@
 Page({
   data: {
+    id: null,
     pageLoaded: false,
 
     subjects: [], // 所有题目
@@ -15,8 +16,12 @@ Page({
     var self = this;
     var app = getApp();
 
+    self.setData({
+      id: query.id
+    });
+
     dd.httpRequest({
-      url: app.globalData.host + '/api/psys/'+query.id,
+      url: app.globalData.host + '/api/psys/'+self.data.id,
       method: 'GET',
       data: {
         is_subject: 1,
@@ -45,6 +50,7 @@ Page({
   },
   select(event) {
     var self = this;
+    var app = getApp();
     var data = event.target.dataset;
     var $subject_index = this.data.subject_index;
     var $option_choose = this.data.option_choose;
@@ -71,9 +77,31 @@ Page({
           confirmButtonText: '提交',
           cancelButtonText: '取消',
           success: (result) => {
-            dd.navigateTo({
-              url: '/pages/articleTestResult/articleTestResult'
-            })
+            var score = 0;
+            self.data.score_choose.forEach(item => {
+              score += item;
+            });
+            dd.httpRequest({
+              url: app.globalData.host + '/api/psys/'+self.data.id+'/result',
+              method: 'POST',
+              data: {
+                dingtalk_userid: app.globalData.userInfo.dingtalk_userid,
+                score: score,
+                // comment: '',
+              },
+              dataType: 'json',
+              success: function(res) {
+                if(res.data.status_code === 200) {
+                  dd.redirectTo({
+                    url: '/pages/articleTestResult/articleTestResult?result_id='+res.data.data.id+'&score='+score+'&id='+self.data.id
+                  })
+                }
+              },
+              fail: function(res) {
+              },
+              complete: function(res) {
+              }
+            });
           },
         });
       }

@@ -16,7 +16,7 @@
                 </view>
                 <view class="gui-cate-pimg">
                   <image class="image"
-                    mode="aspectFill" src="{{product.image}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                    mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image) ? product.image : '/static/placeholder.png'}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
                 </view>
             </view>
           </navigator>
@@ -32,7 +32,7 @@
         </view>
       </view>
       <!-- 加载更多 -->
-      <view a:if="{{loading}}" class="gui-page-loadmore" style="{{showLoadMore? '' : 'display:none;'}}">
+      <view a:if="{{loading}}" class="gui-page-loadmore">
        <view class="gui-page-loadmore">
           <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
             <view class="gui-load-more-icon">

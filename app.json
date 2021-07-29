@@ -19,7 +19,9 @@
     "pages/accountResult/accountResult",
     "pages/psychologicalTestProfession/psychologicalTestProfession",
     "pages/order-test/order-test",
-    "pages/accountProfile/accountProfile"
+    "pages/accountProfile/accountProfile",
+    "pages/500/500",
+    "pages/403/403"
   ],
   "window": {
     "defaultTitle": "欣晴e站心理咨询",

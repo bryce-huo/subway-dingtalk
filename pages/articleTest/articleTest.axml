@@ -5,7 +5,7 @@
   <view class="article-test__content">
     <view class="article-test__title">
       <text class="article-test__title-left">{{product.title}}</text>
-      <text class="article-test__title-right iconfont icon-fenxiang"></text>
+      <!-- <text class="article-test__title-right iconfont icon-fenxiang"></text> -->
     </view>
     <view class="article-test__desc">
       <text>
@@ -29,7 +29,7 @@
     <view class="article-text__btns">
       <button type="primary" data-id="{{product.id}}" hover-class="btn-hover" onTap="testStart">立即测试</button>
     </view>
-    <view class="option">
+    <!-- <view class="option">
       <view class="option_left">
         <navigator open-type="navigate" url="">
           <text class="iconfont icon-arrow-left"></text>
@@ -42,37 +42,27 @@
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
       </view>
-    </view>
+    </view> -->
   </view>
   <!-- 用户评价 -->
   <view class="reviews">
-    <view class="reviews-content">
+    <view a:if="{{ product.results.length }}" class="reviews-content">
       <view class="page-section-title gui-h5"><text style="color:#fc8628;">用户</text>评价</view>
       <view class="page-section-content">
-        <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
-          <view class="gui-cate-pimg">
-            <image class="image"
-              mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKZ3vgW6RWcE6ceS4Aa1VUBw4VgpAkhwRpDA2QdzW7n940DmrkgvTQy2n9hJkbwZPU0X0e0ic93tOQ/132" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
-          </view>
-          <view class="gui-cate-pbody">
-            <text class="gui-text gui-product-title gui-primary-color gui-block-text">金丝雀</text>
-            <view class="gui-flex gui-columns gui-space-between">
-              <text class="gui-product-description gui-color-gray">与自己情况符合</text>
+        <block a:for="{{product.results}}" a:for-item="item" a:for-index="index" a:key="index">
+          <view a:if="{{item.comment}}" class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
+            <view class="gui-cate-pimg">
+              <image class="image"
+                mode="aspectFill" src="{{ item.employee.avatar }}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+            </view>
+            <view class="gui-cate-pbody">
+              <text class="gui-text gui-product-title gui-primary-color gui-block-text">{{ item.employee.name }}</text>
+              <view class="gui-flex gui-columns gui-space-between">
+                <text class="gui-product-description gui-color-gray">{{ item.comment }}</text>
+              </view>
             </view>
           </view>
-        </view>
-        <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
-          <view class="gui-cate-pimg">
-            <image class="image"
-              mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKZ3vgW6RWcE6ceS4Aa1VUBw4VgpAkhwRpDA2QdzW7n940DmrkgvTQy2n9hJkbwZPU0X0e0ic93tOQ/132" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
-          </view>
-          <view class="gui-cate-pbody">
-            <text class="gui-text gui-product-title gui-primary-color gui-block-text">金丝雀</text>
-            <view class="gui-flex gui-columns gui-space-between">
-              <text class="gui-product-description gui-color-gray">与自己情况符合</text>
-            </view>
-          </view>
-        </view>
+        </block>
       </view>
     </view>
   </view>

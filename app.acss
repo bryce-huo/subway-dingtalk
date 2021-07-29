@@ -150,14 +150,32 @@ navigator:last-child .gui-cate-product-list{
 }
 button {
   font-size: 30rpx;
-  border-color: #f64f56;
-  background: #f64f56;
+  border-color: #f64f56 !important;
+  background: #f64f56 !important;
 }
 .btn-hover {
-  border-color: #eb3d45;
-  background: #eb3d45;
+  border-color: #eb3d45 !important;
+  background: #eb3d45 !important;
 }
 
 .error {
   border-color: red !important;
+}
+
+/* 错误页面 */
+.ant-result-image image{
+  display: block;
+  width: 100%;
+}
+.ant-result-title {
+    color: #000000d9;
+    font-size: 24px;
+    line-height: 1.8;
+    text-align: center;
+}
+.ant-result-subtitle {
+    color: #00000073;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
 }
