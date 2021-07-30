@@ -1,0 +1,27 @@
+<view  class="main">
+  <form onSubmit="submitComment">
+    <view class="result-title">
+      {{ title }}
+    </view>
+    <view class="result-content">
+      <text class="result-content-main">
+        {{ content }}
+      </text>
+      <text class="result-content-tips">本测评结果仅供参考，具体问题请咨询心理老师</text>
+    </view>
+    <!-- <view class="wirte-review">
+      <view class="page-section">
+        <view class="gui-form-item gui-border-b">
+          <text class="gui-form-label">评论</text>
+          <view class="gui-form-body">
+            <input type="text" class="gui-form-input" 
+              name="review" placeholder="点击添加评论" />
+          </view>
+        </view>
+        <view style="margin-top:0.3rem;">
+          <button form-type="submit" type="primary" hover-class="btn-hover">发送</button>
+        </view>
+      </view>
+    </view> -->
+  </form>
+</view>

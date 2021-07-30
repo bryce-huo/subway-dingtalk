@@ -30,7 +30,7 @@ Page({
     });
     
     dd.httpRequest({
-      url: app.globalData.host + '/api/me/psy/',
+      url: app.globalData.host + '/api/me/feedback',
       method: 'POST',
       data: {
         dingtalk_userid: app.globalData.userInfo.dingtalk_userid,

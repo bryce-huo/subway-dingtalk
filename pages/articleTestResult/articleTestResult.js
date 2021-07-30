@@ -12,7 +12,7 @@ Page({
     var self = this;
     var app = getApp();
 
-    console.log(query);
+    // console.log(query);
     self.setData({
       id: query.id,
       result_id: query.result_id,

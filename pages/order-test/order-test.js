@@ -62,7 +62,7 @@ Page({
     var result;
     var self = this;
     var app = getApp();
-    var users = ['031254064337914497'];
+    var users = [];
 
     self.data.users.forEach(element => {
       users.push(element.userId);
@@ -130,6 +130,11 @@ Page({
             content: '预约成功！',
             duration: 3000,
             success: () => {
+              setTimeout(function() {
+                dd.redirectTo({
+                  url: '/pages/order-test/order-test'
+                })
+              }, 3000)
             },
           });
         }

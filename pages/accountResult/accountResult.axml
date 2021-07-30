@@ -3,7 +3,7 @@
     <view class="page-section page-section-nomargin">
       <view a:if="{{pageLoaded}}" class="page-section-content">
         <view a:if="{{ allProducts.length > 0 }}">
-          <navigator open-type="navigate" url="/pages/article/article?id={{product.id}}" 
+          <navigator open-type="navigate" url="/pages/accountResult2/accountResult2?content={{product.res_desc}}&title={{product.title}}" 
             a:for="{{allProducts}}" a:for-item="product" a:for-index="index" a:key="index"
             >
             <view class="gui-flex gui-rows gui-nowrap gui-cate-product-list">
