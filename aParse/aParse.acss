@@ -6,7 +6,8 @@
     line-height: 1.8;
 }
 view{
-    word-break:break-all; overflow:auto;
+    word-break:break-all;
+    overflow:auto;
 }
 .aParse-inline{
     display: inline;
@@ -88,6 +89,7 @@ view{
 
 .aParse-img{
     /*background-color: #efefef;*/
+    width: 100%;
     overflow: hidden;
 }
 

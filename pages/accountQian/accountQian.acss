@@ -1,0 +1,31 @@
+.account-list {
+  padding: 0.3rem;
+}
+.account-list__content {
+  margin: 0.3rem 0;
+}
+.account-list__item{
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+}
+.account-list__item-right {
+  color: #a9a9a9;
+}
+.account-list__item-top{
+  display: flex;
+  justify-content: space-between;
+}
+.account-list__item-bottom {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.account-list__item-bottom-label {
+  font-weight: 700;
+}
+.account-list__item-bottom-content {
+  color: #777777;
+  margin-top: 0.1rem;
+}

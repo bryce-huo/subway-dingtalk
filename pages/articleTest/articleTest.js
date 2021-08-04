@@ -39,6 +39,20 @@ Page({
   },
   testStart(event) {
     var id = event.target.dataset.id;
+    var self = this;
+    var app = getApp();
+
+    // 统计点击
+    // dd.httpRequest({
+    //   url: app.globalData.host + '/api/psys/'+id+'/click',
+    //   method: 'PUT',
+    //   dataType: 'json',
+    //   success: function(res) {
+    //     if(res.data.status_code === 200) {
+    //     }
+    //   }
+    // });
+
     dd.navigateTo({
       url: '/pages/articleTestContent/articleTestContent?id='+id
     })

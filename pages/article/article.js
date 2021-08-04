@@ -43,17 +43,6 @@ Page({
             globalLoading: false
           })
           dd.hideLoading();
-          
-          // 统计点击
-          dd.httpRequest({
-            url: app.globalData.host + '/api/courses/'+query.id+'/click',
-            method: 'PUT',
-            dataType: 'json',
-            success: function(res) {
-              if(res.data.status_code === 200) {
-              }
-            }
-          });
         }
       });
     }

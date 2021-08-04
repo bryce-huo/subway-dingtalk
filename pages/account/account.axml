@@ -18,7 +18,7 @@
       <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountYuyue/accountYuyue">
           <image class="colorfont" src="/static/color_fonts/yuyue.png"></image>
-          <text class="gui-block-text">我的预约</text>
+          <text class="gui-block-text">我的团体预约</text>
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
       </view>
@@ -31,7 +31,7 @@
       </view> -->
       <view class="account-top__list-item">
         <navigator open-type="navigate" url="/pages/accountResult/accountResult">
-          <image class="colorfont" src="/static/color_fonts/jieguo.png"></image>
+          <image class="colorfont" src="/static/color_fonts/weike.png"></image>
           <text class="gui-block-text">我的测试结果</text>
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
@@ -43,6 +43,18 @@
           <text class="iconfont icon-arrow-right"></text>
         </navigator>
       </view>
+
+      <!-- 测试活动评价用 -->
+      <!-- <view class="account-top__list-item">
+        <navigator open-type="navigate" url="/pages/signle_review/signle_review?id=41">
+          <image class="colorfont" src="/static/color_fonts/fankui.png"></image>
+          <text class="gui-block-text">活动评价</text>
+          <text class="iconfont icon-arrow-right"></text>
+        </navigator>
+      </view> -->
     </view>
+  </view>
+  <view class="account-bottom__option">
+    <view class="account-bottom__option-btn" onTap="goScan" style="background: #eb3d45;color: #fff;">扫码</view>
   </view>
 </view>

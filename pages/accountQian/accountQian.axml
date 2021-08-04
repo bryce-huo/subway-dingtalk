@@ -1,0 +1,45 @@
+<view a:if="{{pageLoaded}}" class="account-list">
+  <!-- <view class="account-list__title">
+    <view class="gui-h5">预约记录<text style="color:#3688ff;">{{ allProducts.length }}</text>条</view>
+  </view> -->
+  <view class="account-list__content">
+    <view  a:if="{{ allProducts.length > 0 }}">
+      <block
+        a:for="{{allProducts}}" a:for-item="product" a:for-index="index" a:key="index"
+        >
+        <view class="account-list__item">
+          <view class="account-list__item-top">
+            <text class="account-list__item-left">{{ product.dingtalk_userid_info.name }}</text>
+            <text class="account-list__item-right">签到时间：{{ product.created_at }}</text>
+          </view>
+          <!-- <view class="account-list__item-bottom">
+            <text class="account-list__item-bottom-label">评论内容：</text>
+            <text class="account-list__item-bottom-content">
+              阿世界顶级撒谎的赛后的撒娇好撒娇等哈时间都会撒娇的撒娇大家说的赛后顶级撒谎就是大海就撒谎的睡觉啊的撒娇大家都会撒娇都会撒娇都会撒娇很多事 
+            </text>
+          </view> -->
+        </view>
+      </block>
+    </view>
+    <view a:else>
+      <view class="gui-flex gui-columns gui-justify-content-center gui-align-items-center">
+        <view slot="img" class="gui-flex gui-rows gui-justify-content-center">
+          <image class="gui-empty-img" src="/static/empty.jpg"></image>
+        </view>
+        <text slot="text" 
+          class="gui-text-small gui-block-text gui-text-center gui-margin-top" style="color:#9DABFF;">暂无数据 ......</text>
+      </view>
+    </view>
+  </view>
+  <!-- 加载更多 -->
+  <view a:if="{{loading}}" class="gui-page-loadmore">
+    <view class="gui-page-loadmore">
+      <view class="gui-load-more gui-flex gui-rows gui-align-items-center gui-justify-content-center">
+        <view class="gui-load-more-icon">
+          <text class="iconfont icon-loading gui-rotate360 gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);"></text>
+        </view>
+        <text class="gui-block-text" style="font-size:26rpx;color:rgba(69, 90, 100, 0.6);">更多数据加载中</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -5,6 +5,8 @@ App({
     var self = this;
     var app = getApp();
 
+    // console.log(options)
+
     // 获取免登授权码（这个方法api文档提供）
     dd.getAuthCode({
       success: res => {
@@ -41,7 +43,12 @@ App({
             })
           },
           complete: function(res) {
-            console.log(res)
+            // console.log(res)
+            if(res.data.status_code === 400) {
+              dd.redirectTo({
+                url: '/pages/500/500'
+              })
+            }
             // dd.hideLoading();
           }
         });

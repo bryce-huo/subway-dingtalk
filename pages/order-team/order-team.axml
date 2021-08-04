@@ -7,7 +7,7 @@
       <view class="gui-form-item gui-border-b">
 				<text class="gui-form-label">活动主题</text>
 				<view class="gui-form-body">
-					<picker onChange="bindThemeChange" range="{{themeArray}}" value="{{themeIndex}}">
+					<picker name="title" onChange="bindThemeChange" range="{{themeArray}}" value="{{themeIndex}}">
 						<view class="gui-flex gui-rows gui-nowrap gui-space-between gui-align-items-center">
 							<text class="gui-text gui-picker-placeholder">{{themeArray[themeIndex]}}</text>
 							<text class="gui-form-icon iconfont icon-arrow-down gui-text-center gui-color-gray"></text>
@@ -30,31 +30,31 @@
         <text class="gui-form-label">预约负责人</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="activity_principal" placeholder="请输入预约负责人" />
+            name="person" placeholder="请输入预约负责人" />
         </view>
       </view>
       <view class="gui-form-item gui-border-b">
         <text class="gui-form-label">联系方式</text>
         <view class="gui-form-body">
           <input type="text" class="gui-form-input" 
-            name="activity_tel" placeholder="请输入联系方式" />
+            name="mobile" placeholder="请输入联系方式" />
         </view>
       </view>
       <view class="gui-form-item-textarea gui-border-b">
         <view class="page-section-title">活动需求</view>
         <view class="page-section-demo">
-          <textarea name="activity_require" onBlur="bindTextAreaBlur" auto-height placeholder="请输出活动需求" />
+          <textarea name="remark01" onBlur="bindTextAreaBlur" auto-height placeholder="请输出活动需求" />
         </view>
       </view>
       <view class="gui-form-item-textarea gui-border-b">
         <view class="page-section-title">其他需求</view>
         <view class="page-section-demo">
-          <textarea name="other_require" onBlur="bindTextAreaBlur" auto-height placeholder="请输出活动需求" />
+          <textarea name="remark02" onBlur="bindTextAreaBlur" auto-height placeholder="请输出其他需求" />
         </view>
       </view>
       <view style="height:80rpx;"></view>
       <view class="order-btns">
-				<button form-type="submit" hover-class="btn-hover" type="primary">确认预约</button>
+				<button form-type="submit" loading="{{submitLoading}}" disabled="{{submitLoading}}" hover-class="btn-hover" type="primary">确认预约</button>
 			</view>
 			<view style="height:80rpx;"></view>
     </form>

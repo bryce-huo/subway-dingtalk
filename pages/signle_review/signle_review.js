@@ -1,12 +1,12 @@
 Page({
   data: {
     submitLoading: false,
+    queryId: null
   },
   onLoad(query) {
     var app = getApp();
 
     this.setData({
-      userInfo: app.globalData.userInfo,
       queryId: query.id ? query.id : null,
     }) 
   },
@@ -30,7 +30,7 @@ Page({
     });
     
     dd.httpRequest({
-      url: app.globalData.host + '/api/me/feedback',
+      url: app.globalData.host + '/api/group/comments/'+self.data.queryId,
       method: 'POST',
       data: {
         dingtalk_userid: app.globalData.userInfo.dingtalk_userid,
@@ -40,7 +40,7 @@ Page({
       success: function(res) {
         if(res.data.status_code === 200) {
           dd.alert({
-            title: '提交成功，我们会尽快与您联系！',
+            title: '评价成功！',
             buttonText: '我知道了',
             success: () => {
               dd.navigateBack({
@@ -48,9 +48,12 @@ Page({
               })
             },
           });
+        }else{
+          dd.alert({ title: res.data.message });
         }
       },
       fail: function(res) {
+        dd.alert({ title: res.data.message });
       },
       complete: function(res) {
         self.setData({

@@ -130,8 +130,5 @@ Page({
     this.setData({
       searchWords: '',
     });
-  },
-  click() {
-    console.log(1212321);
   }
 });

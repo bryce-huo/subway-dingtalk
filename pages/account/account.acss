@@ -59,5 +59,22 @@
   height: 0.4rem;
   margin-right: 0.2rem;
 }
+.account-bottom__option {
+  padding: 1rem 0.3rem 0.3rem;
+}
+.account-bottom__option-btn{
+  background: #ffffff;
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  padding: 0.3rem 0;
+  margin-bottom: 0.2rem;
+  border-radius: 3px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  margin-right: 0.3rem;
+  border: 1px solid #d6e0ea;
+}
 
 

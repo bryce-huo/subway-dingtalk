@@ -2,6 +2,7 @@ var array = require('lodash/array');
 
 Page({
   data: {
+    id: null,
     allProducts: [],
     currentPage: 1,
     currentTotalPage: 0,
@@ -11,6 +12,9 @@ Page({
   onLoad(query) {
     dd.showLoading({
       content: '加载中...',
+    });
+    this.setData({
+      id: query.id
     });
     this.getData();
   },
@@ -27,13 +31,14 @@ Page({
   getData(page) {
     var self = this;
     var app = getApp();
+
     dd.httpRequest({
-      url: app.globalData.host + '/api/group/appointments',
+      url: app.globalData.host + '/api/group/comments/'+self.data.id,
       method: 'GET',
       data: {
-        page: page ? page : 1,
-        limit: 10,
         dingtalk_userid: app.globalData.userInfo.dingtalk_userid,
+        page: page ? page : 1,
+        limit: 15,
       },
       dataType: 'json',
       success: function(res) {

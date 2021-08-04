@@ -22,7 +22,12 @@
     "pages/accountProfile/accountProfile",
     "pages/500/500",
     "pages/403/403",
-    "pages/accountResult2/accountResult2"
+    "pages/accountResult2/accountResult2",
+    "pages/accountQian/accountQian",
+    "pages/accountReview/accountReview",
+    "pages/signle_review/signle_review",
+    "pages/accountQianCode/accountQianCode",
+    "pages/accountReviewCode/accountReviewCode"
   ],
   "window": {
     "defaultTitle": "欣晴e站心理咨询",
