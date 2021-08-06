@@ -74,5 +74,7 @@ App({
     userInfo: null,
     // host: 'http://hxj.vaiwan.com',
     host: 'http://dw-psy.vaiwan.com',
+    // 审批人userid，生产环境：宋雨悦
+    admin_id: '031254064337914497'
   }
 });

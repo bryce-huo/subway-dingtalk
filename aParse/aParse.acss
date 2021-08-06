@@ -67,7 +67,7 @@ view{
 /*aparse-自定义个性化的css样式*/
 .aParse-p {
   font-size: 0.24rem;
-  line-height: 0.35rem;
+  /* line-height: 0.35rem; */
   margin-bottom: 0.1rem;
 }
 /*增加video的css样式*/

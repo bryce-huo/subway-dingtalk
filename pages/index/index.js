@@ -85,10 +85,26 @@ Page({
         })
       }
     });
+  },
+  goOrderTest() {
+    var self = this;
+    var app = getApp();
+
+    if(app.globalData.admin_id === app.globalData.userInfo.dingtalk_userid) {
+      dd.navigateTo({
+        url: '/pages/order-test/order-test'
+      })
+    }else{
+      dd.alert({
+        // title: '出错了！',
+        content: '您没有权限预约专业测评',
+        buttonText: '确定',
+        success: () => {
+        },
+      });
+    }
   }
 });
-
-
 
 // Page({
 //   onLoad(query) {

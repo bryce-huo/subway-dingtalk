@@ -40,12 +40,12 @@
           </view>
           <view class="category__title">微课堂</view>
         </navigator>
-        <navigator class="category__item" open-type="navigate" url="/pages/order-test/order-test">
+        <view class="category__item" onTap="goOrderTest">
           <view class="category__img">
             <image src="/static/category_imgs/cate_yuyue.png"></image>
           </view>
           <view class="category__title">测评预约</view>
-        </navigator>
+        </view>
         <navigator class="category__item" open-type="navigate" url="/pages/psychologicalTestProfession/psychologicalTestProfession">
           <view class="category__img">
             <image src="/static/category_imgs/cate_ceping.png"></image>

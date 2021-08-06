@@ -33,7 +33,7 @@
       </view>
 
       <!-- Banner -->
-      <view class="article-banner">
+      <view a:if="{{product.id == 1}}" class="article-banner">
         <image a:if="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image)}}" src="{{product.image}}"></image>
       </view>
 
