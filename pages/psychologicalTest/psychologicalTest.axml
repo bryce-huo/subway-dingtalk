@@ -49,8 +49,9 @@
                 </view>
                 <view class="gui-cate-pimg">
                   <image class="image"
-                    data-name="center"
-                    mode="center" src="{{product.img}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                      data-name="aspectFill"
+                      mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image_01) ? product.image_01.replace(/\\/g, '/') : '/static/placeholder.png'}}" style="width:150rpx;height:150rpx;border-radius:10rpx" 
+                      />
                 </view>
               </view>
             </navigator>

@@ -1,6 +1,6 @@
 <view a:if="{{pageLoaded}}" class="main">
   <view class="article-test__wrap">
-    <image mode="aspectFill" class="article-test__banner" src="http://m.xinrunjiamei.com/uploads/20190227/6d02f0d0cb300f95f4cc2bb3d448806e.jpg"></image>
+    <image mode="aspectFill" class="article-test__banner" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image_02) ? product.image_02.replace(/\\/g, '/') : '/static/placeholder.png'}}"></image>
   <view>
   <view class="article-test__content">
     <view class="article-test__title">

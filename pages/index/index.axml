@@ -74,7 +74,7 @@
           <view class="scroll-view-item" 
             a:for="{{psyFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
             <navigator open-type="navigate" url="/pages/articleTest/articleTest?id={{item.id}}">
-              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image_01) ? item.image_01 : '/static/placeholder.png'}}"></image>
+              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image_01) ? item.image_01.replace(/\\/g, '/') : '/static/placeholder.png'}}"></image>
               <text class="scroll-view-item__text gui-text-small">{{item.title}}</text>
             </navigator>
           </view>
@@ -89,7 +89,7 @@
           <view class="scroll-view-item" 
             a:for="{{courseFeatured}}" a:for-item="item" a:for-index="index" a:key="index">
             <navigator open-type="navigate" url="/pages/article/article?id={{item.id}}">
-              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image) ? item.image : '/static/placeholder.png'}}"></image>
+              <image mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(item.image) ? item.image.replace(/\\/g, '/') : '/static/placeholder.png'}}"></image>
               <text class="scroll-view-item__text gui-text-small">{{item.title}}</text>
             </navigator>
           </view>
@@ -113,7 +113,7 @@
               </view>
               <view class="gui-cate-pimg">
                 <image class="image"
-                  mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image) ? product.image : '/static/placeholder.png'}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
+                  mode="aspectFill" src="{{/\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(product.image) ? product.image.replace(/\\/g, '/') : '/static/placeholder.png'}}" style="width:150rpx;height:150rpx;border-radius:10rpx"/>
               </view>
           </view>
         </navigator>

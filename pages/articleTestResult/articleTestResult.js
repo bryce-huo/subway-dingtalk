@@ -9,6 +9,10 @@ Page({
     pageLoaded: false,
   },
   onLoad(query) {
+    dd.showLoading({
+      content: '加载中...',
+    });
+    
     var self = this;
     var app = getApp();
 
@@ -47,7 +51,7 @@ Page({
       fail: function(res) {
       },
       complete: function(res) {
-        // dd.hideLoading();
+        dd.hideLoading();
         self.setData({
           pageLoaded: true
         })
